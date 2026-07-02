@@ -1,6 +1,7 @@
 const timeline = [
   {
     title: "Carromato",
+    area: "Carromato",
     duration: 3,
     icon: "caravan",
     role: "Introduccion narrativa",
@@ -11,6 +12,7 @@ const timeline = [
   },
   {
     title: "Exterior del castillo",
+    area: "Exterior",
     duration: 15,
     icon: "trees",
     role: "Primera zona jugable real",
@@ -21,6 +23,7 @@ const timeline = [
   },
   {
     title: "Sala principal",
+    area: "Sala principal",
     duration: 20,
     icon: "landmark",
     role: "Nucleo principal de la experiencia",
@@ -31,6 +34,7 @@ const timeline = [
   },
   {
     title: "Pasillo / mazmorra",
+    area: "Pasillo",
     duration: 7,
     icon: "music",
     role: "Transicion intensa y sensorial",
@@ -41,6 +45,7 @@ const timeline = [
   },
   {
     title: "Laboratorio del mago",
+    area: "Laboratorio",
     duration: 14,
     icon: "flask-conical",
     role: "Revelacion final y climax",
@@ -139,8 +144,10 @@ function icon(name) {
 
 function renderTimeline() {
   timelineList.innerHTML = timeline
-    .map(
-      (item, index) => `
+    .map((item, index) => {
+      const games = backlog.filter((game) => game.area === item.area);
+
+      return `
       <article class="timeline-card" style="transition-delay: ${index * 90}ms">
         <div class="timeline-icon">${icon(item.icon)}</div>
         <div class="timeline-content">
@@ -152,10 +159,31 @@ function renderTimeline() {
           <p>${item.summary}</p>
           <p><strong>Objetivo:</strong> ${item.objective}</p>
           <ul>${item.beats.map((beat) => `<li class="pill">${beat}</li>`).join("")}</ul>
+          <div class="room-games">
+            <div class="room-games-header">
+              <span>${icon("list-ordered")} Orden de resolucion</span>
+              <strong>${games.length} juegos</strong>
+            </div>
+            <ol>
+              ${games
+                .map(
+                  (game) => `
+                    <li>
+                      <span class="game-step">${game.id}</span>
+                      <div>
+                        <strong>${game.name}</strong>
+                        <small>${game.status} · ${game.priority}</small>
+                      </div>
+                    </li>
+                  `,
+                )
+                .join("")}
+            </ol>
+          </div>
         </div>
       </article>
-    `,
-    )
+    `;
+    })
     .join("");
 }
 

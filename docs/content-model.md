@@ -9,6 +9,7 @@ La constante `timeline` contiene las cinco fases principales de la experiencia.
 Campos actuales:
 
 - `title`: nombre de la sala o fase.
+- `area`: clave que conecta la sala con los juegos del backlog.
 - `duration`: duracion en minutos.
 - `icon`: nombre de icono Lucide.
 - `role`: funcion dentro de la experiencia.
@@ -21,6 +22,7 @@ Ejemplo:
 ```js
 {
   title: "Carromato",
+  area: "Carromato",
   duration: 3,
   icon: "caravan",
   role: "Introduccion narrativa",
@@ -43,6 +45,8 @@ Campos actuales:
 - `priority`: prioridad.
 
 Los filtros actuales dependen de `priority` y `status`.
+
+El timeline usa `area` para mostrar automaticamente los juegos de cada sala en el mismo orden en que aparecen en el backlog. Ese orden se considera el orden de resolucion.
 
 ## Panel de planificacion
 

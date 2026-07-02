@@ -524,6 +524,87 @@ h3 {
   list-style: none;
 }
 
+.room-games {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(226, 187, 112, 0.18);
+}
+
+.room-games-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--gold-strong);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.room-games-header span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.room-games-header strong {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: none;
+}
+
+.room-games ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.room-games li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.65rem;
+  padding: 0.72rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.game-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.35rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: rgba(231, 183, 86, 0.16);
+  color: var(--gold-strong);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.room-games li strong,
+.room-games li small {
+  display: block;
+}
+
+.room-games li strong {
+  overflow-wrap: anywhere;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.room-games li small {
+  margin-top: 0.18rem;
+  color: var(--dim);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -741,6 +822,15 @@ svg {
 
   .timeline-card,
   .backlog-item {
+    grid-template-columns: 1fr;
+  }
+
+  .room-games-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .room-games ol {
     grid-template-columns: 1fr;
   }
 
