@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape Room Medieval | Timeline y Planificacion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark"><i data-lucide="castle"></i></span>
+        <span>
+          <strong>Escape Room Medieval</strong>
+          <small>timeline, backlog y planificacion</small>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="Secciones principales">
+        <a href="#timeline">Timeline</a>
+        <a href="#avance">Avance</a>
+        <a href="#backlog">Backlog</a>
+      </nav>
+      <button class="menu-button" id="openPlanning" type="button" aria-haspopup="dialog">
+        <i data-lucide="scroll-text"></i>
+        Planificacion
+      </button>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><i data-lucide="sparkles"></i> 59 minutos de aventura</p>
+          <h1>Un mapa vivo para construir el castillo, sala por sala.</h1>
+          <p>
+            Visualiza el recorrido completo, descubre cada zona en vertical y abre el panel de
+            planificacion para priorizar juegos, dudas y tareas pendientes.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#timeline">
+              Explorar timeline
+              <i data-lucide="arrow-down"></i>
+            </a>
+            <button class="ghost-action" id="openPlanningHero" type="button">
+              Ver plan
+              <i data-lucide="layout-dashboard"></i>
+            </button>
+          </div>
+        </div>
+        <aside class="quest-board" aria-label="Resumen del proyecto">
+          <div class="board-top">
+            <span>Estado global</span>
+            <strong>Concepto avanzado</strong>
+          </div>
+          <div class="orbital-meter" style="--value: 3">
+            <span>3%</span>
+            <small>construccion</small>
+          </div>
+          <div class="board-grid">
+            <div>
+              <i data-lucide="timer"></i>
+              <strong>59 min</strong>
+              <small>duracion</small>
+            </div>
+            <div>
+              <i data-lucide="puzzle"></i>
+              <strong>35</strong>
+              <small>mecanismos</small>
+            </div>
+            <div>
+              <i data-lucide="map"></i>
+              <strong>5</strong>
+              <small>zonas</small>
+            </div>
+            <div>
+              <i data-lucide="circle-help"></i>
+              <strong>10</strong>
+              <small>dudas clave</small>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="progress-section" id="avance">
+        <div class="section-heading">
+          <p class="eyebrow"><i data-lucide="hammer"></i> Avance de produccion</p>
+          <h2>Definicion alta, fabricacion casi al inicio.</h2>
+        </div>
+        <div class="progress-layout">
+          <article class="progress-card construction">
+            <div class="progress-header">
+              <i data-lucide="hard-hat"></i>
+              <div>
+                <h3>Construccion</h3>
+                <p>Estimacion indicada por el briefing: alrededor del 3%.</p>
+              </div>
+            </div>
+            <div class="bar"><span style="width: 3%"></span></div>
+            <strong>3%</strong>
+          </article>
+          <article class="progress-card definition">
+            <div class="progress-header">
+              <i data-lucide="drafting-compass"></i>
+              <div>
+                <h3>Definicion</h3>
+                <p>14 de 35 juegos figuran como definidos conceptualmente en el backlog.</p>
+              </div>
+            </div>
+            <div class="bar"><span style="width: 40%"></span></div>
+            <strong>40%</strong>
+          </article>
+          <article class="progress-card pending">
+            <div class="progress-header">
+              <i data-lucide="list-checks"></i>
+              <div>
+                <h3>Pendiente de concretar</h3>
+                <p>Diseño tecnico, contenido, juegos sin definir y decisiones de coste.</p>
+              </div>
+            </div>
+            <div class="bar"><span style="width: 60%"></span></div>
+            <strong>60%</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="timeline-section" id="timeline">
+        <div class="section-heading">
+          <p class="eyebrow"><i data-lucide="route"></i> Timeline vertical</p>
+          <h2>Descubre la aventura como la viviran los jugadores.</h2>
+        </div>
+        <div class="timeline" id="timelineList" aria-live="polite"></div>
+      </section>
+
+      <section class="backlog-section" id="backlog">
+        <div class="section-heading">
+          <p class="eyebrow"><i data-lucide="boxes"></i> Juegos y mecanismos</p>
+          <h2>Un backlog escaneable para pasar de idea a produccion.</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filtros de backlog">
+          <button class="filter active" type="button" data-filter="all">Todos</button>
+          <button class="filter" type="button" data-filter="Alta">Alta</button>
+          <button class="filter" type="button" data-filter="Pendiente">Pendientes</button>
+          <button class="filter" type="button" data-filter="Sin definir">Sin definir</button>
+        </div>
+        <div class="backlog-grid" id="backlogGrid"></div>
+      </section>
+    </main>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+    <aside class="drawer" id="planningDrawer" aria-hidden="true" aria-label="Panel de planificacion">
+      <div class="drawer-header">
+        <div>
+          <p class="eyebrow"><i data-lucide="layout-dashboard"></i> Panel emergente</p>
+          <h2>Planificacion</h2>
+        </div>
+        <button class="icon-button" id="closePlanning" type="button" aria-label="Cerrar panel">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="drawer-tabs" role="tablist" aria-label="Vistas de planificacion">
+        <button class="tab active" type="button" data-tab="tasks">Tareas</button>
+        <button class="tab" type="button" data-tab="pending">Pendientes</button>
+        <button class="tab" type="button" data-tab="questions">Dudas</button>
+      </div>
+
+      <div class="drawer-panel active" id="tab-tasks"></div>
+      <div class="drawer-panel" id="tab-pending"></div>
+      <div class="drawer-panel" id="tab-questions"></div>
+    </aside>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
