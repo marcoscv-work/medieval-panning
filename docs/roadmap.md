@@ -26,9 +26,22 @@ Objetivo: pasar de backlog a diseno jugable.
 
 - Crear una ficha por mecanismo.
 - Asociar cada ficha a su ID.
+- Clasificar cada mecanismo por peso: puzzle principal, puzzle secundario, microinteraccion, efecto narrativo, pista/apoyo o falso objeto.
 - Marcar dependencias entre juegos.
 - Anadir riesgos de produccion y tecnologia.
 - Anadir criterios de reset para la siguiente partida.
+
+## Warning ligero de balance
+
+El backlog actual tiene 35 mecanismos para 59 minutos. Como inventario de ideas es potente, pero como resolucion real puede ser demasiado denso.
+
+Recomendacion de diseno:
+
+- Mantener entre 12 y 16 puzzles reales.
+- Convertir el resto en microinteracciones, pistas, efectos, narrativa o falsos objetos.
+- Vigilar especialmente Exterior, Sala principal y Laboratorio por densidad.
+- La Sala principal deberia concentrar 5-6 juegos principales y usar los demas como subpasos o apoyos.
+- El Laboratorio debe sentirse climatico, no saturado: mejor 2-3 juegos fuertes y tension narrativa.
 
 ## Fase 4 - Seguimiento de produccion
 

@@ -133,6 +133,12 @@ const areaIcons = {
   Laboratorio: "flask-conical",
 };
 
+const balanceNotes = {
+  Exterior: "Densidad alta para 15 minutos: conviene fusionar varios mecanismos o tratarlos como microacciones guiadas.",
+  "Sala principal": "Zona muy cargada: mejor separar 5-6 puzzles principales y convertir el resto en pistas, efectos o subpasos.",
+  Laboratorio: "Climax con bastante carga: mantener 2-3 juegos reales y usar pistas falsas/huida como tension narrativa.",
+};
+
 const timelineList = document.querySelector("#timelineList");
 const backlogGrid = document.querySelector("#backlogGrid");
 const drawer = document.querySelector("#planningDrawer");
@@ -159,6 +165,14 @@ function renderTimeline() {
           <p>${item.summary}</p>
           <p><strong>Objetivo:</strong> ${item.objective}</p>
           <ul>${item.beats.map((beat) => `<li class="pill">${beat}</li>`).join("")}</ul>
+          ${
+            balanceNotes[item.area]
+              ? `<div class="room-warning">
+                  ${icon("triangle-alert")}
+                  <span>${balanceNotes[item.area]}</span>
+                </div>`
+              : ""
+          }
           <div class="room-games">
             <div class="room-games-header">
               <span>${icon("list-ordered")} Orden de resolucion</span>

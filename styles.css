@@ -7,6 +7,9 @@
   --panel: rgba(34, 25, 17, 0.84);
   --panel-solid: #241a12;
   --line: rgba(226, 187, 112, 0.24);
+  --stone: #27231d;
+  --stone-light: #3a3329;
+  --parchment: #d8b878;
   --gold: #e7b756;
   --gold-strong: #ffcf6d;
   --red: #bd4b3d;
@@ -27,14 +30,29 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, transparent 0 3.9rem, rgba(0, 0, 0, 0.22) 3.9rem 4rem),
+    linear-gradient(transparent 0 3.9rem, rgba(0, 0, 0, 0.28) 3.9rem 4rem),
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     radial-gradient(circle at 20% 8%, rgba(190, 63, 45, 0.24), transparent 34rem),
     radial-gradient(circle at 85% 18%, rgba(214, 158, 74, 0.17), transparent 32rem),
-    linear-gradient(145deg, #0c0907 0%, var(--bg) 45%, #1f1410 100%);
-  background-size: 48px 48px, 48px 48px, auto, auto, auto;
+    linear-gradient(145deg, #090807 0%, #15120e 42%, #211812 100%);
+  background-size: 8rem 4rem, 4rem 8rem, 8rem 8rem, 8rem 8rem, 48px 48px, 48px 48px, auto, auto, auto;
   color: var(--ink);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 50% -12rem, rgba(255, 207, 109, 0.18), transparent 28rem),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.36), transparent 22%, transparent 78%, rgba(0, 0, 0, 0.36));
+  pointer-events: none;
 }
 
 body.drawer-open {
@@ -83,9 +101,26 @@ button {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem clamp(1rem, 4vw, 4rem);
-  border-bottom: 1px solid var(--line);
-  background: rgba(14, 10, 7, 0.78);
+  border-bottom: 2px solid rgba(226, 187, 112, 0.28);
+  background:
+    linear-gradient(180deg, rgba(50, 43, 35, 0.92), rgba(14, 10, 7, 0.84)),
+    repeating-linear-gradient(90deg, transparent 0 3.25rem, rgba(255, 255, 255, 0.045) 3.25rem 3.35rem);
   backdrop-filter: blur(18px);
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.72rem;
+  left: 0;
+  height: 0.72rem;
+  background:
+    linear-gradient(90deg, var(--stone-light) 0 1.2rem, transparent 1.2rem 2.4rem) repeat-x,
+    linear-gradient(rgba(226, 187, 112, 0.2), rgba(226, 187, 112, 0));
+  background-size: 2.4rem 100%, 100% 100%;
+  opacity: 0.62;
+  pointer-events: none;
 }
 
 .brand,
@@ -111,8 +146,10 @@ button {
   height: 2.8rem;
   place-items: center;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: linear-gradient(145deg, rgba(231, 183, 86, 0.22), rgba(189, 75, 61, 0.18));
+  border-radius: 4px 4px 8px 8px;
+  background:
+    linear-gradient(145deg, rgba(231, 183, 86, 0.2), rgba(84, 71, 57, 0.58)),
+    repeating-linear-gradient(90deg, transparent 0 0.62rem, rgba(0, 0, 0, 0.2) 0.62rem 0.72rem);
   color: var(--gold-strong);
 }
 
@@ -166,7 +203,9 @@ h3 {
 
 .menu-button,
 .primary-action {
-  background: linear-gradient(135deg, #a63f32, #d49a45);
+  background:
+    linear-gradient(135deg, #8f332a, #d49a45),
+    repeating-linear-gradient(90deg, transparent 0 0.7rem, rgba(255, 255, 255, 0.1) 0.7rem 0.75rem);
   box-shadow: 0 12px 34px rgba(172, 75, 42, 0.26);
   font-weight: 800;
   padding: 0.8rem 1rem;
@@ -270,8 +309,11 @@ h3 {
 .timeline-card,
 .backlog-item,
 .drawer {
-  border: 1px solid var(--line);
-  background: var(--panel);
+  border: 1px solid rgba(226, 187, 112, 0.28);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 32%),
+    linear-gradient(180deg, rgba(41, 35, 28, 0.9), rgba(23, 17, 12, 0.88)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 4rem);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
 }
@@ -279,7 +321,7 @@ h3 {
 .quest-board {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 4px 4px 8px 8px;
   padding: 1.2rem;
 }
 
@@ -287,7 +329,21 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 207, 109, 0.18), transparent 42%);
+  background:
+    linear-gradient(135deg, rgba(255, 207, 109, 0.18), transparent 42%),
+    radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.1), transparent 16rem);
+  pointer-events: none;
+}
+
+.quest-board::after,
+.progress-card::after,
+.timeline-card::after,
+.backlog-item::after {
+  content: "";
+  position: absolute;
+  inset: 0.38rem;
+  border: 1px solid rgba(255, 207, 109, 0.08);
+  border-radius: inherit;
   pointer-events: none;
 }
 
@@ -390,7 +446,8 @@ h3 {
 }
 
 .progress-card {
-  border-radius: 8px;
+  position: relative;
+  border-radius: 4px 4px 8px 8px;
   padding: 1.2rem;
 }
 
@@ -458,7 +515,7 @@ h3 {
   grid-template-columns: auto minmax(0, 1fr);
   gap: 1rem;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 4px 4px 8px 8px;
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 520ms ease, transform 520ms ease, border-color 220ms ease;
@@ -479,8 +536,10 @@ h3 {
   height: 3.2rem;
   place-items: center;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px 4px 8px 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 207, 109, 0.1), rgba(0, 0, 0, 0.18)),
+    repeating-linear-gradient(90deg, transparent 0 0.55rem, rgba(255, 255, 255, 0.07) 0.55rem 0.62rem);
 }
 
 .timeline-content {
@@ -522,6 +581,49 @@ h3 {
   padding: 0;
   margin: 0.8rem 0 0;
   list-style: none;
+}
+
+.balance-warning,
+.room-warning {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  border: 1px solid rgba(255, 207, 109, 0.28);
+  border-radius: 4px 4px 8px 8px;
+  background:
+    linear-gradient(135deg, rgba(216, 184, 120, 0.18), rgba(80, 48, 28, 0.18)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 0.55rem);
+  color: var(--muted);
+}
+
+.balance-warning {
+  max-width: 58rem;
+  margin: -0.5rem 0 1.25rem;
+  padding: 1rem;
+}
+
+.balance-warning i,
+.room-warning i {
+  color: var(--parchment);
+}
+
+.balance-warning strong {
+  display: block;
+  color: var(--ink);
+  font-family: Cinzel, Georgia, serif;
+  font-size: 1.05rem;
+}
+
+.balance-warning p {
+  margin: 0.25rem 0 0;
+  line-height: 1.55;
+}
+
+.room-warning {
+  margin-top: 0.85rem;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .room-games {
@@ -569,8 +671,10 @@ h3 {
   gap: 0.65rem;
   padding: 0.72rem;
   border: 1px solid rgba(255, 255, 255, 0.075);
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.16);
+  border-radius: 4px 4px 8px 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(0, 0, 0, 0.16)),
+    rgba(0, 0, 0, 0.16);
 }
 
 .game-step {
@@ -633,12 +737,13 @@ h3 {
 }
 
 .backlog-item {
+  position: relative;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0.8rem;
   min-height: 10rem;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 4px 4px 8px 8px;
 }
 
 .backlog-icon {
@@ -646,7 +751,7 @@ h3 {
   width: 2.4rem;
   height: 2.4rem;
   place-items: center;
-  border-radius: 8px;
+  border-radius: 4px 4px 8px 8px;
   background: rgba(255, 255, 255, 0.07);
 }
 
@@ -681,7 +786,9 @@ h3 {
   height: 100vh;
   overflow: auto;
   padding: 1.2rem;
-  background: rgba(27, 19, 13, 0.96);
+  background:
+    linear-gradient(180deg, rgba(48, 40, 31, 0.98), rgba(21, 15, 10, 0.97)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 4rem);
   transform: translateX(105%);
   transition: transform 260ms ease;
 }
