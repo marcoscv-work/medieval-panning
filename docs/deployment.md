@@ -18,34 +18,39 @@ http://127.0.0.1:4173/
 
 Configuracion recomendada:
 
-- Branch: `main`.
-- Carpeta: `/`.
+- Build type: GitHub Actions.
+- Workflow: `.github/workflows/pages.yml`.
+- Branch fuente: `main`.
+- Carpeta publicada: `/`.
 - Dominio: el que genere GitHub Pages.
 
 Comandos utiles:
 
 ```bash
 git status -sb
-git add index.html styles.css script.js README.md docs/*.md
+git add index.html styles.css script.js README.md docs/*.md .github/workflows/pages.yml .nojekyll
 git commit -m "Add medieval planning site"
 git push -u origin main
-gh api -X POST repos/marcoscv-work/medieval-panning/pages \
-  -f source.branch=main \
-  -f source.path=/
 ```
 
-Si Pages ya existe:
+Configurar Pages para GitHub Actions:
 
 ```bash
 gh api -X PUT repos/marcoscv-work/medieval-panning/pages \
-  -f source.branch=main \
-  -f source.path=/
+  --input pages-workflow.json
+```
+
+Donde `pages-workflow.json` contiene:
+
+```json
+{"build_type":"workflow"}
 ```
 
 Consultar estado:
 
 ```bash
 gh api repos/marcoscv-work/medieval-panning/pages
+gh run list --workflow pages.yml
 ```
 
 ## Validacion antes de publicar
