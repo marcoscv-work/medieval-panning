@@ -21,14 +21,14 @@ Ejemplo:
 
 ```js
 {
-  title: "Carromato",
-  area: "Carromato",
+  title: "Bosque — prologo",
+  area: "Bosque",
   duration: 3,
-  icon: "caravan",
+  icon: "trees",
   role: "Introduccion narrativa",
-  objective: "Presentar la desaparicion de las criaturas...",
-  summary: "Los jugadores empiezan a oscuras...",
-  beats: ["Conductor narrador", "Viaje simulado", "Llegada al bosque"]
+  objective: "Descubrir la mision y emprender el camino hacia la fortaleza...",
+  summary: "Los jugadores entran en el bosque a oscuras y se sientan en unos troncos...",
+  beats: ["Entrada a oscuras", "Troncos", "Salida del Game Master", "Proyeccion de la mision"]
 }
 ```
 

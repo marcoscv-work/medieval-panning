@@ -1,14 +1,14 @@
 const timeline = [
   {
-    title: "Carromato",
-    area: "Carromato",
+    title: "Bosque — prologo",
+    area: "Bosque",
     duration: 3,
-    icon: "caravan",
+    icon: "trees",
     role: "Introduccion narrativa",
-    objective: "Presentar la desaparicion de las criaturas y enviar al grupo al castillo del mago.",
+    objective: "Descubrir la mision y emprender el camino hacia la fortaleza del gran mago.",
     summary:
-      "Los jugadores empiezan a oscuras dentro del carromato. El conductor narra el misterio del reino y, al encenderse las luces, la proyeccion revela que han llegado al bosque.",
-    beats: ["Conductor narrador", "Viaje simulado", "Llegada al bosque"],
+      "Los jugadores entran en el bosque a oscuras y se sientan en unos troncos. El Game Master se marcha y comienza una proyeccion: han llegado a un mundo magico cuyas criaturas estan desapareciendo. Para descubrir la causa, deberan visitar al gran mago del reino en su fortaleza.",
+    beats: ["Entrada a oscuras", "Troncos", "Salida del Game Master", "Proyeccion de la mision"],
   },
   {
     title: "Exterior del castillo",
@@ -57,8 +57,8 @@ const timeline = [
 ];
 
 const backlog = [
-  ["J-001", "Carromato", "Proyeccion introductoria con conductor", "Definido conceptualmente", "Alta"],
-  ["J-002", "Carromato", "Simulacion de viaje / llegada al bosque", "Pendiente de diseno tecnico", "Alta"],
+  ["J-001", "Bosque", "Entrada a oscuras y acomodo en los troncos", "Definido conceptualmente", "Alta"],
+  ["J-002", "Bosque", "Proyeccion introductoria tras la salida del Game Master", "Pendiente de diseno tecnico", "Alta"],
   ["J-003", "Exterior", "Alma perdida / acompanante Game Master", "Definido conceptualmente", "Alta"],
   ["J-004", "Exterior", "Ofrenda al alma perdida", "Pendiente de diseno", "Alta"],
   ["J-005", "Exterior", "Deshacer encantamiento de la puerta", "Pendiente de diseno", "Alta"],
@@ -126,7 +126,7 @@ const questions = [
 ];
 
 const areaIcons = {
-  Carromato: "caravan",
+  Bosque: "trees",
   Exterior: "trees",
   "Sala principal": "landmark",
   Pasillo: "music",

@@ -14,7 +14,7 @@ El objetivo del site es crecer desde una visualizacion inicial hacia una herrami
 
 1. Separar datos a `data.js` o `data/*.json`.
 2. Crear fichas individuales para cada mecanismo.
-3. Anadir vista por area: Carromato, Exterior, Sala principal, Pasillo y Laboratorio.
+3. Anadir vista por area: Bosque, Exterior, Sala principal, Pasillo y Laboratorio.
 4. Anadir estados de produccion: idea, diseno, prototipo, fabricacion, integrado, probado.
 5. Anadir dependencia entre mecanismos.
 6. Anadir estimacion de coste, riesgo tecnico y responsable.
