@@ -137,10 +137,222 @@ const balanceNotes = {
   Laboratorio: "Climax con bastante carga: mantener 2-3 juegos reales y usar pistas falsas/huida como tension narrativa.",
 };
 
+const mapPoints = [
+  {
+    id: "banco",
+    title: "Banco de espera",
+    area: "Escenografia",
+    zone: "scenic",
+    icon: "armchair",
+    x: 10,
+    y: 43,
+    summary: "Banco de 200 × 50 cm situado en el extremo izquierdo del recorrido.",
+    details: "Punto fisico de apoyo y espera. Conviene mantener libre su entorno para no interferir con la circulacion ni con la entrada a la puerta magica.",
+    mechanisms: [],
+  },
+  {
+    id: "puerta-entrada",
+    title: "Puerta magica de entrada",
+    area: "Sala principal",
+    zone: "main",
+    icon: "door-open",
+    x: 25,
+    y: 46,
+    summary: "Acceso encantado que introduce al grupo en la zona interior del castillo.",
+    details: "Debe reforzar el paso desde el exterior hacia la Sala principal y funcionar como hito narrativo claro dentro del recorrido.",
+    mechanisms: ["J-005", "J-006"],
+  },
+  {
+    id: "animatronico-principal",
+    title: "Criaturas animatronicas",
+    area: "Sala principal",
+    zone: "main",
+    icon: "eye",
+    x: 29,
+    y: 62,
+    summary: "Criaturas con movimiento de ojos que observan a los jugadores.",
+    details: "Presentan la presencia de criaturas magicas dentro del castillo y ayudan a construir la sospecha de que algo no va bien.",
+    mechanisms: ["J-011", "J-012"],
+  },
+  {
+    id: "altillo",
+    title: "Altillo y escalera",
+    area: "Sala principal",
+    zone: "main",
+    icon: "move-up-right",
+    x: 38,
+    y: 34,
+    summary: "Desnivel central que conecta la sala con los libros y elementos elevados.",
+    details: "La altura se aprovecha para cambiar el punto de vista del jugador y permitir la lectura o activacion de elementos que no funcionan desde el nivel inferior.",
+    mechanisms: ["J-019", "J-020"],
+  },
+  {
+    id: "caldero",
+    title: "Caldero fisico",
+    area: "Sala principal",
+    zone: "main",
+    icon: "cooking-pot",
+    x: 43,
+    y: 24,
+    summary: "Pieza fisica protagonista situada junto al altillo.",
+    details: "Su mecanica concreta sigue pendiente, pero debe integrarse como una interaccion de alta prioridad y resistir el uso repetido entre sesiones.",
+    mechanisms: ["J-013"],
+  },
+  {
+    id: "libros",
+    title: "Biblioteca encantada",
+    area: "Sala principal",
+    zone: "main",
+    icon: "book-open-text",
+    x: 55,
+    y: 19,
+    summary: "Libros moviles y un volumen que se descifra desde el altillo.",
+    details: "La biblioteca combina movimiento escenografico con una lectura condicionada por la posicion elevada del jugador.",
+    mechanisms: ["J-018", "J-019"],
+  },
+  {
+    id: "cuadro",
+    title: "Cuadro magico",
+    area: "Sala principal",
+    zone: "main",
+    icon: "image",
+    x: 50,
+    y: 43,
+    summary: "Cuadro cambiante mediante una pantalla de tinta electronica de 13,3 pulgadas.",
+    details: "La pantalla ya esta adquirida. Queda validar su refresco e integracion escenografica y preparar el contenido con las posturas de la varita.",
+    mechanisms: ["J-021", "J-022"],
+  },
+  {
+    id: "varita",
+    title: "Obtencion de la varita",
+    area: "Sala principal",
+    zone: "main",
+    icon: "wand-sparkles",
+    x: 43,
+    y: 56,
+    summary: "Objetivo principal de toda la Sala principal.",
+    details: "Los juegos de la sala deben converger en su obtencion. La mecanica y el momento exactos de entrega aun deben definirse.",
+    mechanisms: ["J-017"],
+  },
+  {
+    id: "espejo",
+    title: "Espejo magico",
+    area: "Sala principal",
+    zone: "main",
+    icon: "scan-face",
+    x: 61,
+    y: 28,
+    summary: "Monitor oculto detras de una lamina semirreflectante.",
+    details: "El contenido aparecera cuando se ilumine el monitor. Queda validar brillo, contraste y ocultacion para que el efecto resulte convincente.",
+    mechanisms: ["J-023", "J-024"],
+  },
+  {
+    id: "aldabas",
+    title: "Aldabas parlantes",
+    area: "Pasillo",
+    zone: "passage",
+    icon: "audio-lines",
+    x: 69,
+    y: 27,
+    summary: "Punto sonoro previsto en el acceso al corredor.",
+    details: "Puede funcionar como voz diegetica, aviso o sistema de pistas. Su contenido y su relacion exacta con la progresion siguen por concretar.",
+    mechanisms: [],
+  },
+  {
+    id: "escritorio",
+    title: "Escritorio",
+    area: "Escenografia",
+    zone: "scenic",
+    icon: "notebook-tabs",
+    x: 57,
+    y: 67,
+    summary: "Mueble situado en la transicion entre la Sala principal y el pasillo.",
+    details: "Puede alojar documentos, props o controles ocultos sin invadir el flujo principal de jugadores.",
+    mechanisms: [],
+  },
+  {
+    id: "vidrieras",
+    title: "Vidrieras",
+    area: "Sala principal",
+    zone: "main",
+    icon: "sunrise",
+    x: 52,
+    y: 75,
+    summary: "Franja de vidrieras vinculada a los cambios de luz de la sala.",
+    details: "Sirve de soporte escenografico para el ciclo de dia y noche y para el evento especial del alba.",
+    mechanisms: ["J-015", "J-016"],
+  },
+  {
+    id: "pista-pasillo",
+    title: "Pista del cuadro",
+    area: "Pasillo",
+    zone: "passage",
+    icon: "route",
+    x: 65,
+    y: 47,
+    summary: "Conexion narrativa entre el cuadro de la Sala principal y la prueba musical.",
+    details: "Debe preparar al grupo para interpretar la melodia sin resolver por adelantado la secuencia de las piedras tactiles.",
+    mechanisms: ["J-025"],
+  },
+  {
+    id: "animatronico-silbando",
+    title: "Animatronico silbando",
+    area: "Pasillo",
+    zone: "passage",
+    icon: "bird",
+    x: 68,
+    y: 58,
+    summary: "Criatura que comunica mediante un silbido la melodia que debe reproducirse.",
+    details: "Es la fuente sonora de referencia para el puzzle tactil y debe poder repetirse con claridad cuando el grupo necesite otra escucha.",
+    mechanisms: ["J-026"],
+  },
+  {
+    id: "piedras",
+    title: "Piedras tactiles",
+    area: "Pasillo",
+    zone: "passage",
+    icon: "hand",
+    x: 72,
+    y: 51,
+    summary: "Piedras luminosas controladas mediante sensores capacitivos.",
+    details: "Los jugadores reproducen sobre ellas la melodia del animatronico para abrir el acceso al laboratorio.",
+    mechanisms: ["J-027", "J-028"],
+  },
+  {
+    id: "jaulas",
+    title: "Jaulas de criaturas",
+    area: "Laboratorio",
+    zone: "laboratory",
+    icon: "paw-print",
+    x: 86,
+    y: 36,
+    summary: "Zona final con al menos seis jaulas y criaturas cautivas.",
+    details: "Durante la liberacion se apaga la luz y los motores tumban las criaturas al fondo de las jaulas para ocultarlas. La luz vuelve con audio de liberacion y una proyeccion de apoyo.",
+    mechanisms: ["J-029", "J-030", "J-033"],
+  },
+  {
+    id: "puerta-final",
+    title: "Puerta magica final",
+    area: "Laboratorio",
+    zone: "laboratory",
+    icon: "log-out",
+    x: 86,
+    y: 73,
+    summary: "Salida que se abre tras liberar a las criaturas.",
+    details: "El mago aparece para elevar la tension y el grupo debe atravesar esta puerta durante la huida final.",
+    mechanisms: ["J-034", "J-035"],
+  },
+];
+
 const timelineList = document.querySelector("#timelineList");
 const backlogGrid = document.querySelector("#backlogGrid");
 const drawer = document.querySelector("#planningDrawer");
 const backdrop = document.querySelector("#drawerBackdrop");
+const mapMarkers = document.querySelector("#mapMarkers");
+const mapModal = document.querySelector("#mapModal");
+const mapModalBackdrop = document.querySelector("#mapModalBackdrop");
+const closeMapModalButton = document.querySelector("#closeMapModal");
+let lastMapTrigger = null;
 
 function icon(name) {
   return `<i data-lucide="${name}"></i>`;
@@ -262,6 +474,76 @@ function renderPlanPanel() {
     .join("");
 }
 
+function renderMap() {
+  mapMarkers.innerHTML = mapPoints
+    .map(
+      (point, index) => `
+        <button
+          class="map-marker ${point.zone}"
+          type="button"
+          style="--x: ${point.x}%; --y: ${point.y}%"
+          data-map-point="${point.id}"
+          data-tooltip="${point.title}"
+          aria-label="Abrir ficha: ${point.title}"
+        >
+          <span>${icon(point.icon)}</span>
+          <b>${String(index + 1).padStart(2, "0")}</b>
+        </button>
+      `,
+    )
+    .join("");
+}
+
+function openMapModal(pointId, trigger) {
+  const point = mapPoints.find((item) => item.id === pointId);
+  if (!point) return;
+
+  const related = point.mechanisms
+    .map((mechanismId) => backlog.find((item) => item.id === mechanismId))
+    .filter(Boolean);
+
+  document.querySelector("#mapModalIcon").innerHTML = icon(point.icon);
+  document.querySelector("#mapModalArea").textContent = point.area;
+  document.querySelector("#mapModalTitle").textContent = point.title;
+  document.querySelector("#mapModalSummary").textContent = point.summary;
+  document.querySelector("#mapModalDetails").innerHTML = `
+    <p>${point.details}</p>
+    ${
+      related.length
+        ? `<div class="map-related"><strong>Mecanismos relacionados</strong>${related
+            .map(
+              (item) => `
+                <article>
+                  <span>${item.id}</span>
+                  <div><b>${item.name}</b><small>${item.status} · Prioridad ${item.priority}</small></div>
+                </article>
+              `,
+            )
+            .join("")}</div>`
+        : '<div class="map-related"><strong>Tipo de punto</strong><p>Elemento escenografico sin mecanismo asignado.</p></div>'
+    }
+  `;
+
+  mapModal.classList.add("open");
+  mapModal.inert = false;
+  mapModal.setAttribute("aria-hidden", "false");
+  mapModalBackdrop.hidden = false;
+  document.body.classList.add("modal-open");
+  lastMapTrigger = trigger;
+  closeMapModalButton.focus();
+  refreshIcons();
+}
+
+function closeMapModal() {
+  mapModal.classList.remove("open");
+  mapModal.inert = true;
+  mapModal.setAttribute("aria-hidden", "true");
+  mapModalBackdrop.hidden = true;
+  document.body.classList.remove("modal-open");
+  if (lastMapTrigger && document.contains(lastMapTrigger)) lastMapTrigger.focus();
+  lastMapTrigger = null;
+}
+
 function refreshIcons() {
   if (window.lucide) window.lucide.createIcons();
 }
@@ -283,6 +565,7 @@ function closeDrawer() {
 renderTimeline();
 renderBacklog();
 renderPlanPanel();
+renderMap();
 refreshIcons();
 
 const observer = new IntersectionObserver(
@@ -316,6 +599,15 @@ document.querySelector("#openPlanning").addEventListener("click", openDrawer);
 document.querySelector("#openPlanningHero").addEventListener("click", openDrawer);
 document.querySelector("#closePlanning").addEventListener("click", closeDrawer);
 backdrop.addEventListener("click", closeDrawer);
+mapMarkers.addEventListener("click", (event) => {
+  const marker = event.target.closest("[data-map-point]");
+  if (marker) openMapModal(marker.dataset.mapPoint, marker);
+});
+closeMapModalButton.addEventListener("click", closeMapModal);
+mapModalBackdrop.addEventListener("click", closeMapModal);
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeDrawer();
+  if (event.key === "Escape") {
+    closeDrawer();
+    closeMapModal();
+  }
 });

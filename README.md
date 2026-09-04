@@ -34,6 +34,7 @@ http://127.0.0.1:4173/
 ## Que incluye
 
 - Timeline vertical con animacion de descubrimiento.
+- Plano interactivo con puntos, tooltips y fichas modales vinculadas al backlog.
 - Panel emergente de planificacion.
 - Resumen de avance de construccion, definicion y pendiente.
 - Backlog filtrable por prioridad y estado.

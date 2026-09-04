@@ -48,6 +48,21 @@ Los filtros actuales dependen de `priority` y `status`.
 
 El timeline usa `area` para mostrar automaticamente los juegos de cada sala en el mismo orden en que aparecen en el backlog. Ese orden se considera el orden de resolucion.
 
+## Plano interactivo
+
+La constante `mapPoints` coloca los puntos interactivos sobre `assets/interactive-floor-plan.jpg`.
+
+- `id`: identificador interno estable.
+- `title`: titulo mostrado en tooltip y modal.
+- `area`: zona o categoria visible.
+- `zone`: clase de color (`main`, `passage`, `laboratory` o `scenic`).
+- `icon`: icono Lucide del punto.
+- `x` e `y`: posicion porcentual sobre el plano.
+- `summary` y `details`: explicacion breve y ampliada.
+- `mechanisms`: IDs del backlog relacionados con ese punto.
+
+Las coordenadas porcentuales mantienen los puntos alineados cuando cambia el tamano del plano. En pantallas estrechas, el plano conserva su escala y permite desplazamiento horizontal.
+
 ## Panel de planificacion
 
 El panel lateral usa tres grupos:

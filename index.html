@@ -25,6 +25,7 @@
         </span>
       </a>
       <nav class="desktop-nav" aria-label="Secciones principales">
+        <a href="#mapa">Mapa</a>
         <a href="#timeline">Timeline</a>
         <a href="#avance">Avance</a>
         <a href="#backlog">Backlog</a>
@@ -117,6 +118,40 @@
               </p>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="map-section" id="mapa" aria-labelledby="map-title">
+        <div class="map-heading">
+          <div class="section-heading">
+            <p class="eyebrow"><i data-lucide="map"></i> Plano interactivo</p>
+            <h2 id="map-title">Explora el castillo sobre el terreno.</h2>
+            <p class="section-intro">
+              Pasa sobre cada sello para identificar el punto y pulsa para consultar su funcion,
+              estado y mecanismos relacionados.
+            </p>
+          </div>
+          <div class="map-legend" aria-label="Leyenda del mapa">
+            <span><i class="legend-dot main"></i> Sala principal</span>
+            <span><i class="legend-dot passage"></i> Pasillo</span>
+            <span><i class="legend-dot laboratory"></i> Laboratorio</span>
+            <span><i class="legend-dot scenic"></i> Escenografia</span>
+          </div>
+        </div>
+
+        <div class="map-shell">
+          <div class="map-scroll" tabindex="0" aria-label="Plano desplazable del castillo">
+            <div class="map-canvas">
+              <img
+                src="assets/interactive-floor-plan.jpg"
+                alt="Plano cenital estilizado del castillo con sala principal, pasillo y laboratorio"
+                width="1951"
+                height="806"
+              />
+              <div class="map-markers" id="mapMarkers"></div>
+            </div>
+          </div>
+          <p class="map-hint"><i data-lucide="mouse-pointer-click"></i> Pulsa un punto para abrir su ficha.</p>
         </div>
       </section>
 
@@ -218,6 +253,26 @@
       <div class="drawer-panel" id="tab-pending"></div>
       <div class="drawer-panel" id="tab-questions"></div>
     </aside>
+
+    <div class="map-modal-backdrop" id="mapModalBackdrop" hidden></div>
+    <section
+      class="map-modal"
+      id="mapModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mapModalTitle"
+      aria-hidden="true"
+      inert
+    >
+      <button class="icon-button map-modal-close" id="closeMapModal" type="button" aria-label="Cerrar ficha">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="map-modal-icon" id="mapModalIcon"></div>
+      <p class="eyebrow" id="mapModalArea"></p>
+      <h2 id="mapModalTitle"></h2>
+      <p class="map-modal-summary" id="mapModalSummary"></p>
+      <div class="map-modal-details" id="mapModalDetails"></div>
+    </section>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="script.js"></script>
