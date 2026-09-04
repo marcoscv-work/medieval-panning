@@ -44,8 +44,8 @@ http://127.0.0.1:4173/
 ## Estado actual del proyecto
 
 - Construccion: 3%.
-- Definicion: 40%, calculado sobre 14 mecanismos definidos conceptualmente de 35.
-- Pendiente de concretar: 60%, incluyendo diseno tecnico, contenido, dudas, juegos sin definir y decisiones de coste.
+- Definicion: 43%, calculado sobre 15 mecanismos definidos conceptualmente de 35.
+- Pendiente de concretar: 57%, incluyendo diseno tecnico, contenido, dudas, juegos sin definir y decisiones de coste.
 - Duracion narrativa: 59 minutos.
 - Zonas jugables: 5.
 - Mecanismos registrados: 35.

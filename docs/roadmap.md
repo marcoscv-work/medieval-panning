@@ -70,6 +70,10 @@ Objetivo: que el site sirva para vender, revisar y decidir.
 - Electronica o no de la varita.
 - Tipo de cuadro magico.
 - Tipo de espejo magico.
-- Sensorica de piedras tactiles.
 - Dos juegos faltantes del laboratorio.
-- Liberacion visual de criaturas.
+
+## Decisiones cerradas
+
+- Las piedras tactiles funcionaran con sensores capacitivos.
+- La liberacion incluira al menos seis jaulas. Se apagara la luz y unos motores tumbaran y ocultaran las criaturas al fondo de cada jaula; despues volvera la iluminacion y sonara un audio de liberacion.
+- La proyeccion acompanara la liberacion como apoyo visual, pero el efecto principal sera fisico.

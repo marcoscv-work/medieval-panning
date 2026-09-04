@@ -51,8 +51,8 @@ const timeline = [
     role: "Revelacion final y climax",
     objective: "Liberar a las criaturas magicas y escapar antes de que el mago los atrape.",
     summary:
-      "El grupo descubre que el mago experimenta con las criaturas. Entre pistas falsas y objetos inutiles, resuelven el conjuro final; el mago aparece y se abre la huida.",
-    beats: ["Pistas falsas", "Conjuro colectivo", "Aparicion del mago", "Huida"],
+      "El grupo descubre que el mago experimenta con criaturas encerradas en al menos seis jaulas. Durante la liberacion se apaga la luz, unos motores ocultan las criaturas al fondo de las jaulas y, al volver la iluminacion, el audio y una proyeccion de apoyo confirman que han escapado.",
+    beats: ["Conjuro colectivo", "Apagon y motores", "Audio de liberacion", "Proyeccion de apoyo", "Huida"],
   },
 ];
 
@@ -83,10 +83,10 @@ const backlog = [
   ["J-024", "Sala principal", "Resolucion espejo + apertura pasillo", "Pendiente de diseno", "Alta"],
   ["J-025", "Pasillo", "Pista conectada con cuadro anterior", "Pendiente de diseno", "Media"],
   ["J-026", "Pasillo", "Animatronico silbando melodia", "Definido conceptualmente", "Alta"],
-  ["J-027", "Pasillo", "Piedras tactiles luminosas", "Definido conceptualmente", "Alta"],
+  ["J-027", "Pasillo", "Piedras tactiles luminosas con sensores capacitivos", "Definido conceptualmente", "Alta"],
   ["J-028", "Pasillo", "Reproduccion de melodia con piedras", "Definido conceptualmente", "Alta"],
   ["J-029", "Laboratorio", "Pistas falsas / llaves inutiles", "Pendiente de diseno", "Media"],
-  ["J-030", "Laboratorio", "Juego final de liberacion de criaturas", "Pendiente de diseno", "Alta"],
+  ["J-030", "Laboratorio", "Liberacion en 6+ jaulas: apagon, motores, audio y proyeccion de apoyo", "Definido conceptualmente", "Alta"],
   ["J-031", "Laboratorio", "Juego adicional 1", "Sin definir", "Alta"],
   ["J-032", "Laboratorio", "Juego adicional 2", "Sin definir", "Alta"],
   ["J-033", "Laboratorio", "Conjuro final colectivo", "Definido conceptualmente", "Alta"],
@@ -119,9 +119,7 @@ const questions = [
   ["wand", "Varita electronica", "Decidir si la varita sera prop fisico o tendra sensores/electronica."],
   ["image", "Cuadro magico", "Elegir pantalla, proyeccion o efecto fisico segun coste y mantenimiento."],
   ["mic-vocal", "Espejo magico", "Resolver si sera actor, IA, video, pantalla o sistema pregrabado."],
-  ["hand", "Piedras tactiles", "Elegir sensores capacitivos, presion o botones ocultos para asegurar fiabilidad."],
   ["flask-conical", "Dos juegos de laboratorio", "Disenar los dos juegos que faltan para sostener el climax."],
-  ["sparkles", "Liberacion visual", "Definir como se vera la liberacion de las criaturas en el final."],
   ["route", "Obtencion de la varita", "Concretar el momento exacto en que se consigue este objeto central."],
 ];
 
