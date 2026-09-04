@@ -66,11 +66,15 @@ Objetivo: que el site sirva para vender, revisar y decidir.
 ## Decisiones pendientes prioritarias
 
 - Tipo de ofrenda del exterior.
-- Obtencion exacta de la varita.
+- Mecanica y momento exactos para obtener la varita como objetivo principal de la Sala principal.
 - Electronica o no de la varita.
-- Tipo de cuadro magico.
-- Tipo de espejo magico.
 - Dos juegos faltantes del laboratorio.
+
+## Decisiones provisionales pendientes de validacion
+
+- El cuadro magico utilizara, a priori, la pantalla de tinta electronica de 13,3 pulgadas ya adquirida para producir el cambio de imagen.
+- El espejo magico utilizara, a priori, un monitor situado detras de una lamina semirreflectante que permita ver su contenido cuando se ilumine.
+- Queda pendiente probar el refresco e integracion del cuadro y el brillo, contraste y ocultacion del monitor del espejo.
 
 ## Decisiones cerradas
 
