@@ -35,6 +35,7 @@ http://127.0.0.1:4173/
 
 - Timeline vertical con animacion de descubrimiento.
 - Plano interactivo con puntos, tooltips y fichas modales vinculadas al backlog.
+- Presupuesto online editable por areas, con calculo de equipo, imprevistos, IVA y seleccion de contenido para imprimir.
 - Panel emergente de planificacion.
 - Resumen de avance de construccion, definicion y pendiente.
 - Backlog filtrable por prioridad y estado.
@@ -58,6 +59,8 @@ http://127.0.0.1:4173/
 3. Mantener la estructura base en `index.html`.
 4. Documentar decisiones importantes en `docs/roadmap.md`.
 5. Si se anaden nuevos estados o campos, actualizar `docs/content-model.md`.
+
+El presupuesto se encuentra en `presupuesto.html`. Sus cifras iniciales son orientativas y se guardan localmente en el navegador; cada partida puede restaurarse desde la propia cabecera de configuracion.
 
 Para mas detalle, ver [docs/evolution-guide.md](docs/evolution-guide.md).
 

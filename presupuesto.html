@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Presupuesto configurable para la construccion integral de Escape Room Medieval."
+    />
+    <title>Presupuesto | Escape Room Medieval</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="budget-page">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar no-print">
+      <a class="brand" href="index.html" aria-label="Volver al planning">
+        <span class="brand-mark"><i data-lucide="castle"></i></span>
+        <span>
+          <strong>Escape Room Medieval</strong>
+          <small>presupuesto de construccion</small>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="Secciones principales">
+        <a href="index.html">Planning</a>
+        <a href="index.html#mapa">Mapa</a>
+        <a class="active" href="#presupuesto">Presupuesto</a>
+      </nav>
+      <button class="menu-button" id="printBudgetTop" type="button">
+        <i data-lucide="printer"></i>
+        Imprimir
+      </button>
+    </header>
+
+    <main class="budget-main" id="presupuesto">
+      <section class="budget-hero">
+        <div>
+          <p class="eyebrow"><i data-lucide="scroll-text"></i> Presupuesto configurable</p>
+          <h1>Construccion integral del reino.</h1>
+          <p>
+            Estimacion de trabajo, fabricacion, tecnologia e integracion para entregar la experiencia
+            completa en ocho meses con un equipo de dos personas.
+          </p>
+        </div>
+        <aside class="budget-hero-seal">
+          <i data-lucide="calendar-range"></i>
+          <strong>8 meses × 2 personas</strong>
+          <span>Q4 2026 — Q2 2027</span>
+        </aside>
+      </section>
+
+      <section class="budget-config no-print" aria-labelledby="config-title">
+        <div class="budget-config-heading">
+          <div>
+            <p class="eyebrow"><i data-lucide="sliders-horizontal"></i> Cabecera de configuracion</p>
+            <h2 id="config-title">Ajusta cifras y decide que se imprime.</h2>
+          </div>
+          <p>Las areas ocultas no desaparecen del presupuesto maestro; el total imprimible se recalcula aparte.</p>
+        </div>
+
+        <div class="budget-config-grid">
+          <div class="budget-fields" aria-label="Parametros economicos">
+            <label>
+              <span>Personas</span>
+              <input id="budgetPeople" type="number" min="1" step="1" inputmode="numeric" />
+            </label>
+            <label>
+              <span>Meses</span>
+              <input id="budgetMonths" type="number" min="1" step="1" inputmode="numeric" />
+            </label>
+            <label>
+              <span>Coste mensual / persona</span>
+              <span class="input-with-unit"><input id="budgetMonthlyRate" type="number" min="0" step="100" inputmode="decimal" /><b>€</b></span>
+            </label>
+            <label>
+              <span>Imprevistos</span>
+              <span class="input-with-unit"><input id="budgetContingency" type="number" min="0" max="100" step="1" inputmode="decimal" /><b>%</b></span>
+            </label>
+            <label>
+              <span>IVA</span>
+              <span class="input-with-unit"><input id="budgetVat" type="number" min="0" max="100" step="1" inputmode="decimal" /><b>%</b></span>
+            </label>
+          </div>
+
+          <div class="print-area-config">
+            <div class="print-area-heading">
+              <strong>Contenido de la impresion</strong>
+              <div>
+                <button class="text-button" id="selectAllPrint" type="button">Todo</button>
+                <button class="text-button" id="clearAllPrint" type="button">Nada</button>
+              </div>
+            </div>
+            <div class="print-area-controls" id="printAreaControls"></div>
+          </div>
+        </div>
+
+        <div class="budget-config-actions">
+          <button class="ghost-action" id="resetBudget" type="button">
+            <i data-lucide="rotate-ccw"></i> Restaurar estimacion
+          </button>
+          <button class="primary-action" id="printBudget" type="button">
+            <i data-lucide="printer"></i> Imprimir seleccion
+          </button>
+        </div>
+      </section>
+
+      <article class="budget-document">
+        <header class="budget-document-header">
+          <div>
+            <p class="eyebrow">Propuesta economica</p>
+            <label class="document-field document-title">
+              <span>Proyecto</span>
+              <input id="budgetProject" type="text" />
+            </label>
+          </div>
+          <div class="budget-document-meta">
+            <label class="document-field">
+              <span>Cliente</span>
+              <input id="budgetClient" type="text" />
+            </label>
+            <label class="document-field">
+              <span>Referencia</span>
+              <input id="budgetReference" type="text" />
+            </label>
+            <label class="document-field">
+              <span>Fecha</span>
+              <input id="budgetDate" type="date" />
+            </label>
+          </div>
+        </header>
+
+        <section class="budget-overview" data-print-section="totals" aria-label="Resumen del presupuesto">
+          <article class="full-total-card">
+            <span>Presupuesto completo</span>
+            <strong id="fullBudgetTotal">—</strong>
+            <small>IVA incluido · todas las areas</small>
+          </article>
+          <article class="print-total-card">
+            <span>Total de la seleccion</span>
+            <strong id="printBudgetTotal">—</strong>
+            <small>IVA incluido · contenido imprimible</small>
+          </article>
+          <article>
+            <span>Periodo previsto</span>
+            <strong id="budgetPeriod">—</strong>
+            <small id="budgetTeamLabel">—</small>
+          </article>
+        </section>
+
+        <p class="print-exclusions-note" id="printExclusionsNote"></p>
+
+        <section class="budget-static-section" data-print-section="scope">
+          <div class="budget-section-title">
+            <span class="budget-section-icon"><i data-lucide="badge-check"></i></span>
+            <div>
+              <p class="eyebrow">Alcance</p>
+              <h2>Que incluye y que queda fuera.</h2>
+            </div>
+          </div>
+          <div class="scope-grid">
+            <article class="scope-card included">
+              <h3><i data-lucide="circle-check-big"></i> Incluido</h3>
+              <ul>
+                <li>Diseno creativo, narrativo, tecnico y de produccion.</li>
+                <li>Construccion escenografica de todas las zonas de la experiencia.</li>
+                <li>Props, puzzles, animatronica, sensores, motores y automatismos.</li>
+                <li>Iluminacion, audio, proyecciones y pantallas propias del juego.</li>
+                <li>Programacion, integracion, montaje, pruebas y documentacion de reinicio.</li>
+              </ul>
+            </article>
+            <article class="scope-card excluded">
+              <h3><i data-lucide="circle-minus"></i> Fuera de alcance</h3>
+              <ul>
+                <li>Adaptaciones arquitectonicas o legales generales del local.</li>
+                <li>Instalaciones reglamentarias de seguridad, evacuacion o incendios del inmueble.</li>
+                <li>Camaras CCTV y sistemas de vigilancia o seguridad propios de la sala.</li>
+                <li>Licencias, tasas, certificaciones y trabajos ajenos a la configuracion de la experiencia.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="budget-static-section" data-print-section="schedule">
+          <div class="budget-section-title">
+            <span class="budget-section-icon"><i data-lucide="calendar-clock"></i></span>
+            <div>
+              <p class="eyebrow">Calendario estimado</p>
+              <h2>Ocho meses de trabajo.</h2>
+            </div>
+          </div>
+          <div class="budget-schedule">
+            <article>
+              <span>Q4 2026</span>
+              <h3>Diseno y prototipos</h3>
+              <p>Arranque, cierre de mecanicas, pruebas tecnicas y comienzo de fabricacion.</p>
+            </article>
+            <article>
+              <span>Q1 2027</span>
+              <h3>Construccion e integracion</h3>
+              <p>Escenografia, props, electronica, automatismos y contenidos audiovisuales.</p>
+            </article>
+            <article>
+              <span>Q2 2027</span>
+              <h3>Montaje y entrega</h3>
+              <p>Instalacion, programacion final, pruebas completas, ajustes y puesta en marcha.</p>
+            </article>
+          </div>
+        </section>
+
+        <div class="budget-sections" id="budgetSections"></div>
+
+        <section class="budget-totals" data-print-section="totals">
+          <div>
+            <p>
+              Estimacion inicial basada en el planning conocido. Los precios son editables y deberan
+              validarse con mediciones, proveedores y diseno tecnico definitivo.
+            </p>
+          </div>
+          <dl>
+            <div><dt>Base incluida</dt><dd id="selectedBase">—</dd></div>
+            <div><dt id="contingencyLabel">Imprevistos</dt><dd id="selectedContingency">—</dd></div>
+            <div><dt>Total sin IVA</dt><dd id="selectedBeforeVat">—</dd></div>
+            <div><dt id="vatLabel">IVA</dt><dd id="selectedVat">—</dd></div>
+            <div class="grand-total"><dt>Total presupuesto</dt><dd id="selectedGrandTotal">—</dd></div>
+          </dl>
+        </section>
+
+        <footer class="budget-document-footer">
+          <p>Presupuesto orientativo y configurable · Escape Room Medieval</p>
+          <p>Vigencia recomendada de la estimacion: 30 dias.</p>
+        </footer>
+      </article>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="budget.js"></script>
+  </body>
+</html>
