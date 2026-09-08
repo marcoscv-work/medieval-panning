@@ -66,27 +66,44 @@
         </div>
 
         <div class="budget-config-grid">
-          <div class="budget-fields" aria-label="Parametros economicos">
-            <label>
-              <span>Personas</span>
-              <input id="budgetPeople" type="number" min="1" step="1" inputmode="numeric" />
-            </label>
-            <label>
-              <span>Meses</span>
-              <input id="budgetMonths" type="number" min="1" step="1" inputmode="numeric" />
-            </label>
-            <label>
-              <span>Coste mensual / persona</span>
-              <span class="input-with-unit"><input id="budgetMonthlyRate" type="number" min="0" step="100" inputmode="decimal" /><b>€</b></span>
-            </label>
-            <label>
-              <span>Imprevistos</span>
-              <span class="input-with-unit"><input id="budgetContingency" type="number" min="0" max="100" step="1" inputmode="decimal" /><b>%</b></span>
-            </label>
-            <label>
-              <span>IVA</span>
-              <span class="input-with-unit"><input id="budgetVat" type="number" min="0" max="100" step="1" inputmode="decimal" /><b>%</b></span>
-            </label>
+          <div class="budget-pricing-config">
+            <div class="agreement-control">
+              <label class="agreement-switch">
+                <input id="budgetAgreedPrice" type="checkbox" />
+                <span class="switch-track" aria-hidden="true"><i></i></span>
+                <span>
+                  <strong>Precio acordado</strong>
+                  <small id="budgetModeNote">Reparte el precio cerrado entre todas las areas.</small>
+                </span>
+              </label>
+              <label class="agreement-target">
+                <span>Precio sin IVA</span>
+                <span class="input-with-unit"><input id="budgetAgreedNet" type="number" min="0" step="1000" inputmode="decimal" /><b>€</b></span>
+              </label>
+            </div>
+
+            <div class="budget-fields" aria-label="Parametros economicos">
+              <label>
+                <span>Personas</span>
+                <input id="budgetPeople" type="number" min="1" step="1" inputmode="numeric" />
+              </label>
+              <label>
+                <span>Meses</span>
+                <input id="budgetMonths" type="number" min="1" step="1" inputmode="numeric" />
+              </label>
+              <label>
+                <span>Coste mensual / persona</span>
+                <span class="input-with-unit"><input id="budgetMonthlyRate" type="number" min="0" step="100" inputmode="decimal" /><b>€</b></span>
+              </label>
+              <label>
+                <span>Imprevistos</span>
+                <span class="input-with-unit"><input id="budgetContingency" type="number" min="0" max="100" step="1" inputmode="decimal" /><b>%</b></span>
+              </label>
+              <label>
+                <span>IVA</span>
+                <span class="input-with-unit"><input id="budgetVat" type="number" min="0" max="100" step="1" inputmode="decimal" /><b>%</b></span>
+              </label>
+            </div>
           </div>
 
           <div class="print-area-config">
@@ -138,14 +155,14 @@
 
         <section class="budget-overview" data-print-section="totals" aria-label="Resumen del presupuesto">
           <article class="full-total-card">
-            <span>Presupuesto completo</span>
+            <span>Estimacion a full time</span>
             <strong id="fullBudgetTotal">—</strong>
             <small>IVA incluido · todas las areas</small>
           </article>
           <article class="print-total-card">
-            <span>Total de la seleccion</span>
+            <span id="selectionTotalLabel">Precio acordado</span>
             <strong id="printBudgetTotal">—</strong>
-            <small>IVA incluido · contenido imprimible</small>
+            <small id="selectionTotalNote">IVA incluido · contenido imprimible</small>
           </article>
           <article>
             <span>Periodo previsto</span>

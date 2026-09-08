@@ -1,4 +1,4 @@
-const BUDGET_STORAGE_KEY = "medieval-budget-v1";
+const BUDGET_STORAGE_KEY = "medieval-budget-v2";
 
 const defaultBudgetState = {
   config: {
@@ -7,6 +7,8 @@ const defaultBudgetState = {
     monthlyRate: 3000,
     contingency: 10,
     vat: 21,
+    agreedPrice: true,
+    agreedNet: 60000,
     project: "Escape Room Medieval — construccion integral",
     client: "Por definir",
     reference: "PRE-2026-01",
@@ -25,6 +27,18 @@ const defaultBudgetState = {
     totals: true,
   },
   items: {},
+};
+
+// Reparto del precio cerrado antes de imprevistos. Prima el trabajo del equipo y
+// conserva una dotacion creible para construccion, tecnologia e instalacion.
+const agreedSectionWeights = {
+  labor: 0.55,
+  forest: 0.03,
+  exterior: 0.08,
+  mainRoom: 0.11,
+  passage: 0.05,
+  laboratory: 0.1,
+  integration: 0.08,
 };
 
 const budgetSections = [
@@ -173,7 +187,7 @@ function formatCurrency(value) {
   return currencyFormatter.format(numberValue(value));
 }
 
-function itemValues(item) {
+function fullItemValues(item) {
   if (item.dynamic === "labor") {
     return {
       qty: numberValue(budgetState.config.people) * numberValue(budgetState.config.months),
@@ -186,11 +200,38 @@ function itemValues(item) {
   };
 }
 
-function sectionTotal(section) {
+function fullSectionTotal(section) {
   return section.items.reduce((total, item) => {
-    const values = itemValues(item);
+    const values = fullItemValues(item);
     return total + values.qty * values.unit;
   }, 0);
+}
+
+function agreedBaseTarget() {
+  const contingencyRate = numberValue(budgetState.config.contingency) / 100;
+  return numberValue(budgetState.config.agreedNet) / (1 + contingencyRate);
+}
+
+function activeSectionTotal(section) {
+  if (!budgetState.config.agreedPrice) return fullSectionTotal(section);
+  return agreedBaseTarget() * agreedSectionWeights[section.id];
+}
+
+function activeItemValues(section, item) {
+  const fullValues = fullItemValues(item);
+  if (!budgetState.config.agreedPrice) {
+    return { ...fullValues, amount: fullValues.qty * fullValues.unit };
+  }
+
+  const fullSection = fullSectionTotal(section);
+  const fullAmount = fullValues.qty * fullValues.unit;
+  const itemShare = fullSection > 0 ? fullAmount / fullSection : 1 / section.items.length;
+  const amount = activeSectionTotal(section) * itemShare;
+  return {
+    qty: fullValues.qty,
+    unit: fullValues.qty > 0 ? amount / fullValues.qty : 0,
+    amount,
+  };
 }
 
 function saveBudgetState() {
@@ -218,7 +259,11 @@ function renderBudgetSections() {
           <header>
             <div class="budget-area-title">
               <span><i data-lucide="${section.icon}"></i></span>
-              <div><h2>${section.title}</h2><p>${section.subtitle}</p></div>
+              <div>
+                <h2>${section.title}</h2>
+                <p>${section.subtitle}</p>
+                ${budgetState.config.agreedPrice ? '<small class="agreement-badge">Precio acordado aplicado</small>' : ""}
+              </div>
             </div>
             <strong id="sectionTotal-${section.id}">—</strong>
           </header>
@@ -228,26 +273,27 @@ function renderBudgetSections() {
               <tbody>
                 ${section.items
                   .map((item) => {
-                    const values = itemValues(item);
+                    const values = activeItemValues(section, item);
                     const isDynamic = item.dynamic === "labor";
+                    const isCalculated = isDynamic || budgetState.config.agreedPrice;
                     return `
                       <tr>
                         <td><strong>${item.description}</strong>${item.note ? `<small>${item.note}</small>` : ""}</td>
                         <td>
                           ${
-                            isDynamic
+                            isCalculated
                               ? `<span class="calculated-value">${values.qty}</span>`
                               : `<input class="budget-line-input" data-item="${item.id}" data-field="qty" type="number" min="0" step="0.1" value="${values.qty}" aria-label="Cantidad: ${item.description}" />`
                           }
                         </td>
                         <td>
                           ${
-                            isDynamic
+                            isCalculated
                               ? `<span class="calculated-value">${formatCurrency(values.unit)}</span>`
                               : `<input class="budget-line-input money" data-item="${item.id}" data-field="unit" type="number" min="0" step="10" value="${values.unit}" aria-label="Precio unitario: ${item.description}" /><span class="currency-suffix">€</span>`
                           }
                         </td>
-                        <td><b id="lineTotal-${item.id}">${formatCurrency(values.qty * values.unit)}</b></td>
+                        <td><b id="lineTotal-${item.id}">${formatCurrency(values.amount)}</b></td>
                       </tr>
                     `;
                   })
@@ -269,6 +315,7 @@ function applyStateToFields() {
     budgetMonthlyRate: "monthlyRate",
     budgetContingency: "contingency",
     budgetVat: "vat",
+    budgetAgreedNet: "agreedNet",
     budgetProject: "project",
     budgetClient: "client",
     budgetReference: "reference",
@@ -277,6 +324,7 @@ function applyStateToFields() {
   Object.entries(fieldMap).forEach(([elementId, stateKey]) => {
     document.querySelector(`#${elementId}`).value = budgetState.config[stateKey];
   });
+  document.querySelector("#budgetAgreedPrice").checked = budgetState.config.agreedPrice;
 }
 
 function updatePrintVisibility() {
@@ -295,10 +343,11 @@ function updatePrintVisibility() {
 }
 
 function updateBudget() {
-  const totalsBySection = Object.fromEntries(budgetSections.map((section) => [section.id, sectionTotal(section)]));
-  const fullBase = Object.values(totalsBySection).reduce((sum, value) => sum + value, 0);
+  const fullTotalsBySection = Object.fromEntries(budgetSections.map((section) => [section.id, fullSectionTotal(section)]));
+  const activeTotalsBySection = Object.fromEntries(budgetSections.map((section) => [section.id, activeSectionTotal(section)]));
+  const fullBase = Object.values(fullTotalsBySection).reduce((sum, value) => sum + value, 0);
   const selectedBase = budgetSections.reduce(
-    (sum, section) => sum + (budgetState.print[section.id] ? totalsBySection[section.id] : 0),
+    (sum, section) => sum + (budgetState.print[section.id] ? activeTotalsBySection[section.id] : 0),
     0,
   );
   const contingencyRate = numberValue(budgetState.config.contingency) / 100;
@@ -311,15 +360,19 @@ function updateBudget() {
   const selectedTotal = selectedBeforeVat + selectedVat;
 
   budgetSections.forEach((section) => {
-    document.querySelector(`#sectionTotal-${section.id}`).textContent = formatCurrency(totalsBySection[section.id]);
+    document.querySelector(`#sectionTotal-${section.id}`).textContent = formatCurrency(activeTotalsBySection[section.id]);
     section.items.forEach((item) => {
-      const values = itemValues(item);
-      document.querySelector(`#lineTotal-${item.id}`).textContent = formatCurrency(values.qty * values.unit);
+      const values = activeItemValues(section, item);
+      document.querySelector(`#lineTotal-${item.id}`).textContent = formatCurrency(values.amount);
     });
   });
 
   document.querySelector("#fullBudgetTotal").textContent = formatCurrency(fullTotal);
   document.querySelector("#printBudgetTotal").textContent = formatCurrency(selectedTotal);
+  document.querySelector("#selectionTotalLabel").textContent = budgetState.config.agreedPrice
+    ? "Precio acordado"
+    : "Estimacion seleccionada";
+  document.querySelector("#selectionTotalNote").textContent = `${formatCurrency(selectedBeforeVat)} sin IVA · contenido imprimible`;
   document.querySelector("#selectedBase").textContent = formatCurrency(selectedBase);
   document.querySelector("#selectedContingency").textContent = formatCurrency(selectedContingency);
   document.querySelector("#selectedBeforeVat").textContent = formatCurrency(selectedBeforeVat);
@@ -329,6 +382,11 @@ function updateBudget() {
   document.querySelector("#vatLabel").textContent = `IVA (${numberValue(budgetState.config.vat)}%)`;
   document.querySelector("#budgetPeriod").textContent = `${numberValue(budgetState.config.months)} meses`;
   document.querySelector("#budgetTeamLabel").textContent = `${numberValue(budgetState.config.people)} personas · Q4 2026 — Q2 2027`;
+  document.querySelector("#budgetModeNote").textContent = budgetState.config.agreedPrice
+    ? `${formatCurrency(budgetState.config.agreedNet)} sin IVA, repartidos entre todas las areas.`
+    : "Mostrando el coste estimado a jornada completa durante todo el proyecto.";
+  document.querySelector("#budgetAgreedNet").disabled = !budgetState.config.agreedPrice;
+  document.body.classList.toggle("agreement-mode", budgetState.config.agreedPrice);
   updatePrintVisibility();
 }
 
@@ -339,6 +397,7 @@ function bindBudgetEvents() {
     budgetMonthlyRate: "monthlyRate",
     budgetContingency: "contingency",
     budgetVat: "vat",
+    budgetAgreedNet: "agreedNet",
   };
   Object.entries(numericFields).forEach(([elementId, stateKey]) => {
     document.querySelector(`#${elementId}`).addEventListener("input", (event) => {
@@ -346,6 +405,13 @@ function bindBudgetEvents() {
       updateBudget();
       saveBudgetState();
     });
+  });
+
+  document.querySelector("#budgetAgreedPrice").addEventListener("change", (event) => {
+    budgetState.config.agreedPrice = event.target.checked;
+    renderBudgetSections();
+    updateBudget();
+    saveBudgetState();
   });
 
   const textFields = {

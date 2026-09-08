@@ -11,6 +11,12 @@ La pagina `presupuesto.html` presenta una estimacion editable para la construcci
 
 La tarifa mensual por persona es configurable. El importe de equipo se calcula como personas por meses por tarifa mensual.
 
+## Modos de precio
+
+El modo `Precio acordado` esta activado por defecto y fija el total antes de IVA en 60.000 EUR, incluyendo el porcentaje de imprevistos. La base se reparte de forma ponderada entre las areas y cada partida conserva la proporcion interna de su estimacion tecnica.
+
+Al desactivar el modo acordado, el documento muestra la estimacion completa: dedicacion a jornada completa durante ocho meses mas todas las partidas de construccion e integracion.
+
 ## Partidas
 
 `budget.js` separa el presupuesto en estas areas:
@@ -29,11 +35,11 @@ Todas las cantidades y precios de materiales se pueden editar. La estimacion tam
 
 La cabecera permite incluir o excluir alcance, calendario, areas economicas y totales. La seleccion no altera el presupuesto maestro: genera un total imprimible independiente basado solo en las areas economicas elegidas.
 
-La hoja impresa oculta controles y areas desmarcadas. Si se excluyen secciones, el documento deja constancia de ellas antes del desglose.
+La hoja impresa oculta controles y areas desmarcadas. Si se excluyen secciones, el documento deja constancia de ellas antes del desglose. La regla `@page` no aplica margen exterior.
 
 ## Persistencia
 
-Los cambios se guardan en `localStorage` bajo la clave `medieval-budget-v1`. El boton de restauracion recupera las cifras iniciales.
+Los cambios se guardan en `localStorage` bajo la clave `medieval-budget-v2`. El boton de restauracion recupera las cifras iniciales y el precio acordado de 60.000 EUR antes de IVA.
 
 ## Alcance
 
