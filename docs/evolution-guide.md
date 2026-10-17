@@ -76,6 +76,7 @@ Definicion:
 - Contar como definido solo lo que tenga mecanica jugable clara.
 - No contar como definido algo que sea solo una idea narrativa.
 - Separar definicion narrativa de definicion tecnica cuando el proyecto crezca.
+- Desde el prototipo floating-mask, el indicador incluye 0,5 puntos adicionales por maduracion tecnica verificable del espejo: (15 + 0,5) / 35 = 44% redondeado. No duplicar ese extra al revisar el mismo prototipo. El pendiente es el complemento (56%); la construccion sigue al 3%.
 
 Pendiente:
 

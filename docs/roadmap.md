@@ -73,7 +73,10 @@ Objetivo: que el site sirva para vender, revisar y decidir.
 ## Decisiones provisionales pendientes de validacion
 
 - El cuadro magico utilizara, a priori, la pantalla de tinta electronica de 13,3 pulgadas ya adquirida para producir el cambio de imagen.
-- El espejo magico utilizara, a priori, un monitor situado detras de una lamina semirreflectante que permita ver su contenido cuando se ilumine.
+- El espejo magico utilizara el concepto floating-mask: una mascara 3D animada en un monitor situado detras de una lamina semirreflectante.
+- Prototipo visual disponible en `/Users/marcoscastro/projects/floating-mask`: ocho expresiones, parpadeo, movimiento flotante, seguimiento del puntero, audio y microfono con sincronizacion labial. Los gestos son expresiones de la mascara; no implican deteccion de gestos del jugador.
+- Pendiente: guion del personaje, resolucion del acertijo J-024, disparos desde el gestor de sala y pruebas del montaje optico y de audio. El prototipo vive en su propio repositorio y no se sirve desde este planning.
+- Avance de definicion: 44% (15 conceptos + 0,5 puntos por maduracion tecnica del espejo, sobre 35); pendiente 56%. El medio punto se cuenta una sola vez y no equivale a fabricacion o integracion completada.
 - Queda pendiente probar el refresco e integracion del cuadro y el brillo, contraste y ocultacion del monitor del espejo.
 
 ## Decisiones cerradas

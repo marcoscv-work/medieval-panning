@@ -46,8 +46,9 @@ http://127.0.0.1:4173/
 ## Estado actual del proyecto
 
 - Construccion: 3%.
-- Definicion: 43%, calculado sobre 15 mecanismos definidos conceptualmente de 35.
-- Pendiente de concretar: 57%, incluyendo diseno tecnico, contenido, dudas, juegos sin definir y decisiones de coste.
+- Definicion: 44%, con 15 mecanismos definidos conceptualmente y 0,5 puntos adicionales por el prototipo visual del espejo (15,5 / 35, redondeado).
+- Pendiente de concretar: 56%, incluyendo diseno tecnico, contenido, dudas, juegos sin definir y decisiones de coste.
+- Espejo: concepto floating-mask, con mascara 3D, ocho expresiones y labios sincronizados con audio o microfono. Referencia local: `/Users/marcoscastro/projects/floating-mask`.
 - Duracion narrativa: 59 minutos.
 - Zonas jugables: 5.
 - Mecanismos registrados: 35.

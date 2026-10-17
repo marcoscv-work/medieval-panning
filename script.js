@@ -29,7 +29,7 @@ const timeline = [
     role: "Nucleo principal de la experiencia",
     objective: "Obtener la varita como objetivo principal, sembrar sospechas sobre el mago y abrir el acceso al pasillo.",
     summary:
-      "La sala concentra criaturas animatronicas, caldero, dia y noche, libros vivos y una mini armadura. El cuadro magico cambiara mediante una pantalla de tinta electronica de 13,3 pulgadas y el espejo mostrara un monitor oculto tras una lamina semirreflectante. Todo el recorrido converge en la obtencion de la varita.",
+      "La sala concentra criaturas animatronicas, caldero, dia y noche, libros vivos y una mini armadura. El cuadro magico cambiara mediante una pantalla de tinta electronica de 13,3 pulgadas y el espejo mostrara una mascara 3D animada con expresiones y voz sincronizada, basada en el prototipo floating-mask, en un monitor tras una lamina semirreflectante. Todo el recorrido converge en la obtencion de la varita.",
     beats: ["Varita: objetivo principal", "Cuadro de tinta electronica", "Espejo con monitor", "Caldero", "Libros moviles"],
   },
   {
@@ -79,7 +79,7 @@ const backlog = [
   ["J-020", "Sala principal", "Mini armadura / caballero limpio", "Definido conceptualmente", "Media-alta"],
   ["J-021", "Sala principal", "Cuadro magico con pantalla de tinta electronica de 13,3 pulgadas", "Definido conceptualmente", "Alta"],
   ["J-022", "Sala principal", "Cuadro con posturas de varita", "Pendiente de contenido", "Alta"],
-  ["J-023", "Sala principal", "Espejo magico: monitor tras lamina semirreflectante", "Definido conceptualmente", "Alta"],
+  ["J-023", "Sala principal", "Espejo magico: mascara 3D con gestos y voz (floating-mask)", "Definido conceptualmente", "Alta"],
   ["J-024", "Sala principal", "Resolucion espejo + apertura pasillo", "Pendiente de diseno", "Alta"],
   ["J-025", "Pasillo", "Pista conectada con cuadro anterior", "Pendiente de diseno", "Media"],
   ["J-026", "Pasillo", "Animatronico silbando melodia", "Definido conceptualmente", "Alta"],
@@ -118,7 +118,7 @@ const questions = [
   ["key-round", "Objetos del encantamiento", "Concretar que piezas necesita el grupo para abrir la puerta del castillo."],
   ["wand", "Varita electronica", "Decidir si la varita sera prop fisico o tendra sensores/electronica."],
   ["image", "Validacion del cuadro magico", "Probar el refresco y la integracion escenografica de la pantalla de tinta electronica de 13,3 pulgadas ya adquirida."],
-  ["mic-vocal", "Validacion del espejo magico", "Probar brillo, contraste y ocultacion del monitor detras de la lamina semirreflectante."],
+  ["mic-vocal", "Validacion del espejo magico", "Integrar floating-mask: validar voz, expresiones, control desde el gestor y brillo, contraste y ocultacion tras la lamina semirreflectante. Definir la resolucion del acertijo."],
   ["flask-conical", "Dos juegos de laboratorio", "Disenar los dos juegos que faltan para sostener el climax."],
   ["route", "Obtencion de la varita", "Disenar la mecanica y el momento exactos de su entrega como objetivo principal de la Sala principal."],
 ];
@@ -242,8 +242,8 @@ const mapPoints = [
     icon: "scan-face",
     x: 61,
     y: 28,
-    summary: "Monitor oculto detras de una lamina semirreflectante.",
-    details: "El contenido aparecera cuando se ilumine el monitor. Queda validar brillo, contraste y ocultacion para que el efecto resulte convincente.",
+    summary: "Mascara 3D animada con gestos y voz, basada en floating-mask.",
+    details: "Prototipo disponible: ocho expresiones (neutral, enfado, asco, intriga, sorpresa, alegria, tristeza y miedo), parpadeo, movimiento flotante, seguimiento del puntero y labios sincronizados con audio o microfono en directo. Se mostrara en un monitor tras una lamina semirreflectante. Queda validar el montaje optico, definir el acertijo e integrar los disparos desde el gestor de sala.",
     mechanisms: ["J-023", "J-024"],
   },
   {
