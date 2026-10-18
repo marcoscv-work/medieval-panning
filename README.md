@@ -46,12 +46,15 @@ http://127.0.0.1:4173/
 ## Estado actual del proyecto
 
 - Construccion: 3%.
-- Definicion: 44%, con 15 mecanismos definidos conceptualmente y 0,5 puntos adicionales por el prototipo visual del espejo (15,5 / 35, redondeado).
-- Pendiente de concretar: 56%, incluyendo diseno tecnico, contenido, dudas, juegos sin definir y decisiones de coste.
-- Espejo: concepto floating-mask, con mascara 3D, ocho expresiones y labios sincronizados con audio o microfono. Referencia local: `/Users/marcoscastro/projects/floating-mask`.
+- Definicion: 49%, estimacion editorial de 16 conceptos definidos mas 0,5 puntos por cada uno de los dos prototipos web (17 / 35, redondeado). No mide fabricacion ni integracion terminadas.
+- Pendiente de concretar: 51%, incluyendo diseno tecnico, contenido, dudas, juegos sin definir y decisiones de coste.
+- Prologo J-002: [La ultima luz](https://quakespain.es/prologo/), cuento 3D narrado disponible en web. Pendientes las pruebas de proyeccion y sonido, el disparo desde el gestor y la transicion al juego.
+- Espejo J-023: [espejo / mascara](https://quakespain.es/mask/), prototipo floating-mask publicado, con expresiones y voz sincronizada. Pendientes montaje optico, control de sala y resolucion del acertijo J-024; no se considera un juego fisico completado.
 - Duracion narrativa: 59 minutos.
 - Zonas jugables: 5.
 - Mecanismos registrados: 35.
+
+Actualizacion: 18 de octubre de 2026. Ambos enlaces respondieron HTTP 200 al comprobarlos. Las demos se alojan fuera del planning y se abren desde Avance, timeline, backlog y la ficha del espejo en el plano. Los tres minutos del bosque siguen incluyendo entrada, acomodo y transicion, no solo la duracion del video.
 
 ## Como evolucionarlo
 

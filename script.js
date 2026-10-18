@@ -8,7 +8,7 @@ const timeline = [
     objective: "Descubrir la mision y emprender el camino hacia la fortaleza del gran mago.",
     summary:
       "Los jugadores entran en el bosque a oscuras y se sientan en unos troncos. El Game Master se marcha y comienza una proyeccion: han llegado a un mundo magico cuyas criaturas estan desapareciendo. Para descubrir la causa, deberan visitar al gran mago del reino en su fortaleza.",
-    beats: ["Entrada a oscuras", "Troncos", "Salida del Game Master", "Proyeccion de la mision"],
+    beats: ["Entrada a oscuras", "Troncos", "Salida del Game Master", "Prologo 3D disponible"],
   },
   {
     title: "Exterior del castillo",
@@ -58,7 +58,7 @@ const timeline = [
 
 const backlog = [
   ["J-001", "Bosque", "Entrada a oscuras y acomodo en los troncos", "Definido conceptualmente", "Alta"],
-  ["J-002", "Bosque", "Proyeccion introductoria tras la salida del Game Master", "Pendiente de diseno tecnico", "Alta"],
+  ["J-002", "Bosque", "Prologo 3D narrado: La ultima luz", "Prototipo web disponible · Pendiente de integracion", "Alta"],
   ["J-003", "Exterior", "Alma perdida / acompanante Game Master", "Definido conceptualmente", "Alta"],
   ["J-004", "Exterior", "Ofrenda al alma perdida", "Pendiente de diseno", "Alta"],
   ["J-005", "Exterior", "Deshacer encantamiento de la puerta", "Pendiente de diseno", "Alta"],
@@ -79,7 +79,7 @@ const backlog = [
   ["J-020", "Sala principal", "Mini armadura / caballero limpio", "Definido conceptualmente", "Media-alta"],
   ["J-021", "Sala principal", "Cuadro magico con pantalla de tinta electronica de 13,3 pulgadas", "Definido conceptualmente", "Alta"],
   ["J-022", "Sala principal", "Cuadro con posturas de varita", "Pendiente de contenido", "Alta"],
-  ["J-023", "Sala principal", "Espejo magico: mascara 3D con gestos y voz (floating-mask)", "Definido conceptualmente", "Alta"],
+  ["J-023", "Sala principal", "Espejo magico: mascara 3D con gestos y voz (floating-mask)", "Prototipo web disponible · Pendiente de integracion", "Alta"],
   ["J-024", "Sala principal", "Resolucion espejo + apertura pasillo", "Pendiente de diseno", "Alta"],
   ["J-025", "Pasillo", "Pista conectada con cuadro anterior", "Pendiente de diseno", "Media"],
   ["J-026", "Pasillo", "Animatronico silbando melodia", "Definido conceptualmente", "Alta"],
@@ -94,7 +94,32 @@ const backlog = [
   ["J-035", "Laboratorio", "Apertura de puerta final / huida", "Pendiente de diseno tecnico", "Alta"],
 ].map(([id, area, name, status, priority]) => ({ id, area, name, status, priority }));
 
+const prototypes = [
+  {
+    mechanism: "J-002", title: "Prologo: La ultima luz", icon: "clapperboard",
+    url: "https://quakespain.es/prologo/", action: "Ver prologo",
+    summary: "Cuento 3D narrado: bosque magico, marchitamiento, viaje a la fortaleza y chispa del grupo.",
+    pending: "Validar proyector, sonido, oscuridad, arranque desde el gestor y transicion a la primera prueba.",
+  },
+  {
+    mechanism: "J-023", title: "Espejo / mascara", icon: "scan-face",
+    url: "https://quakespain.es/mask/", action: "Probar espejo / mascara",
+    summary: "Mascara 3D animada con expresiones y voz sincronizada para el personaje del espejo magico.",
+    pending: "Validar monitor y lamina semirreflectante, cerrar el acertijo J-024 e integrar la apertura del pasillo.",
+  },
+];
+
+// Editorial definition estimate, not a measure of physical completion.
+const definedConcepts = backlog.filter(item => item.status === "Definido conceptualmente" || prototypes.some(p => p.mechanism === item.id)).length;
+const definitionScore = definedConcepts + prototypes.length * 0.5;
+const definitionPercent = Math.round(definitionScore / backlog.length * 100);
+
 const tasks = [
+  {
+    icon: "clapperboard",
+    title: "Integrar los dos prototipos publicados",
+    body: "Prologo y espejo/mascara ya tienen demo web. Ensayar proyeccion y audio, montaje optico del espejo, disparos del gestor y reset. Cerrar el acertijo J-024 antes de dar el espejo por terminado.",
+  },
   {
     icon: "book-open-text",
     title: "Documento narrativo jugable",
@@ -108,7 +133,7 @@ const tasks = [
   {
     icon: "wand-sparkles",
     title: "Prototipos clave",
-    body: "Priorizar varita, cuadro, espejo, piedras tactiles, caldero y conjuro final porque conectan varias salas.",
+    body: "Con el prologo y la mascara disponibles en web, priorizar varita, cuadro, piedras tactiles, caldero y conjuro final; completar la mecanica del espejo.",
   },
 ];
 
@@ -243,7 +268,7 @@ const mapPoints = [
     x: 61,
     y: 28,
     summary: "Mascara 3D animada con gestos y voz, basada en floating-mask.",
-    details: "Prototipo disponible: ocho expresiones (neutral, enfado, asco, intriga, sorpresa, alegria, tristeza y miedo), parpadeo, movimiento flotante, seguimiento del puntero y labios sincronizados con audio o microfono en directo. Se mostrara en un monitor tras una lamina semirreflectante. Queda validar el montaje optico, definir el acertijo e integrar los disparos desde el gestor de sala.",
+    details: "Prototipo web publicado: ocho expresiones (neutral, enfado, asco, intriga, sorpresa, alegria, tristeza y miedo), parpadeo, movimiento flotante, seguimiento del puntero y labios sincronizados con audio o microfono en directo. Se mostrara en un monitor tras una lamina semirreflectante. Queda validar el montaje optico, definir el acertijo J-024 e integrar los disparos desde el gestor de sala. Disponible en el enlace de su mecanismo.",
     mechanisms: ["J-023", "J-024"],
   },
   {
@@ -358,6 +383,28 @@ function icon(name) {
   return `<i data-lucide="${name}"></i>`;
 }
 
+function prototypeLink(mechanism) {
+  const prototype = prototypes.find(item => item.mechanism === mechanism);
+  return prototype ? `<a class="prototype-link" href="${prototype.url}" target="_blank" rel="noopener noreferrer">${icon("external-link")} ${prototype.action}<span class="sr-only"> (nueva pestana)</span></a>` : "";
+}
+
+function renderProgress() {
+  document.querySelector("#definitionDetail").textContent = `${definedConcepts} conceptos definidos y 0,5 puntos por cada prototipo web: ${definitionScore} sobre ${backlog.length}.`;
+  document.querySelector("#definitionValue").textContent = `${definitionPercent}%`;
+  document.querySelector("#definitionBar").style.width = `${definitionPercent}%`;
+  document.querySelector("#pendingValue").textContent = `${100 - definitionPercent}%`;
+  document.querySelector("#pendingBar").style.width = `${100 - definitionPercent}%`;
+  document.querySelector("#prototypeGrid").innerHTML = prototypes.map(item => `
+    <article class="prototype-card">
+      <span class="pill">${icon(item.icon)} ${item.mechanism} · Prototipo web disponible</span>
+      <h3>${item.title}</h3>
+      <p>${item.summary}</p>
+      ${prototypeLink(item.mechanism)}
+      <p class="prototype-pending"><strong>Pendiente en sala:</strong> ${item.pending}</p>
+    </article>
+  `).join("");
+}
+
 function renderTimeline() {
   timelineList.innerHTML = timeline
     .map((item, index) => {
@@ -397,6 +444,7 @@ function renderTimeline() {
                       <div>
                         <strong>${game.name}</strong>
                         <small>${game.status} · ${game.priority}</small>
+                        ${prototypeLink(game.id)}
                       </div>
                     </li>
                   `,
@@ -427,6 +475,7 @@ function renderBacklog(filter = "all") {
           <span class="pill">${item.id} · ${item.area}</span>
           <h3>${item.name}</h3>
           <p>${item.status}</p>
+          ${prototypeLink(item.id)}
           <span class="pill priority">${icon("chevrons-up")} ${item.priority}</span>
         </div>
       </article>
@@ -456,7 +505,7 @@ function renderPlanPanel() {
       (item) => `
       <article class="plan-item">
         ${icon(areaIcons[item.area] || "puzzle")}
-        <div><strong>${item.id} · ${item.name}</strong><span>${item.area} · ${item.status} · ${item.priority}</span></div>
+        <div><strong>${item.id} · ${item.name}</strong><span>${item.area} · ${item.status} · ${item.priority}</span>${prototypeLink(item.id)}</div>
       </article>
     `,
     )
@@ -515,7 +564,7 @@ function openMapModal(pointId, trigger) {
               (item) => `
                 <article>
                   <span>${item.id}</span>
-                  <div><b>${item.name}</b><small>${item.status} · Prioridad ${item.priority}</small></div>
+                  <div><b>${item.name}</b><small>${item.status} · Prioridad ${item.priority}</small>${prototypeLink(item.id)}</div>
                 </article>
               `,
             )
@@ -562,6 +611,7 @@ function closeDrawer() {
   document.body.classList.remove("drawer-open");
 }
 
+renderProgress();
 renderTimeline();
 renderBacklog();
 renderPlanPanel();

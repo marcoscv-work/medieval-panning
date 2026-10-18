@@ -64,7 +64,7 @@
         <aside class="quest-board" aria-label="Resumen del proyecto">
           <div class="board-top">
             <span>Estado global</span>
-            <strong>Concepto avanzado</strong>
+            <strong>2 prototipos web disponibles</strong>
           </div>
           <div class="orbital-meter" style="--value: 3">
             <span>3%</span>
@@ -163,7 +163,8 @@
       <section class="progress-section" id="avance">
         <div class="section-heading">
           <p class="eyebrow"><i data-lucide="hammer"></i> Avance de produccion</p>
-          <h2>Definicion alta, fabricacion casi al inicio.</h2>
+          <h2>Dos prototipos disponibles, integracion por delante.</h2>
+          <p class="section-intro">Estado actualizado el 18 de octubre de 2026. Las demos web no implican montaje fisico ni pruebas en sala completadas.</p>
         </div>
         <div class="progress-layout">
           <article class="progress-card construction">
@@ -182,11 +183,11 @@
               <i data-lucide="drafting-compass"></i>
               <div>
                 <h3>Definicion</h3>
-                <p>15 juegos definidos y medio punto adicional por el prototipo visual del espejo: 15,5 sobre 35.</p>
+                <p id="definitionDetail">16 conceptos definidos y medio punto por cada prototipo web: 17 sobre 35.</p>
               </div>
             </div>
-            <div class="bar"><span style="width: 44%"></span></div>
-            <strong>44%</strong>
+            <div class="bar"><span id="definitionBar" style="width: 49%"></span></div>
+            <strong id="definitionValue">49%</strong>
           </article>
           <article class="progress-card pending">
             <div class="progress-header">
@@ -196,10 +197,11 @@
                 <p>Diseño tecnico, contenido, juegos sin definir y decisiones de coste.</p>
               </div>
             </div>
-            <div class="bar"><span style="width: 56%"></span></div>
-            <strong>56%</strong>
+            <div class="bar"><span id="pendingBar" style="width: 51%"></span></div>
+            <strong id="pendingValue">51%</strong>
           </article>
         </div>
+        <div class="prototype-grid" id="prototypeGrid" aria-label="Prototipos web disponibles"></div>
       </section>
 
       <section class="timeline-section" id="timeline">
