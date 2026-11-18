@@ -70,13 +70,14 @@ Construccion:
 
 - Mantenerlo bajo mientras no haya props, electronica, escenografia o integracion real.
 - Subirlo solo cuando haya elementos fisicos construidos o probados.
+- Estado comunicado por Marcos el 18 de noviembre de 2026: 30%. No cambia automaticamente los estados individuales del backlog.
 
 Definicion:
 
 - Contar como definido solo lo que tenga mecanica jugable clara.
 - No contar como definido algo que sea solo una idea narrativa.
 - Separar definicion narrativa de definicion tecnica cuando el proyecto crezca.
-- Desde el prototipo floating-mask, el indicador incluye 0,5 puntos adicionales por maduracion tecnica verificable del espejo: (15 + 0,5) / 35 = 44% redondeado. No duplicar ese extra al revisar el mismo prototipo. El pendiente es el complemento (56%); la construccion sigue al 3%.
+- Con los prototipos del prologo y floating-mask, el indicador incluye 0,5 puntos adicionales por cada prototipo: (16 + 1) / 35 = 49% redondeado. No duplicar ese extra al revisar el mismo prototipo. El pendiente de definicion es el complemento (51%); la construccion se estima por separado.
 
 Pendiente:
 

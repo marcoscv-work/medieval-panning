@@ -52,7 +52,7 @@ J-002 y J-023 usan `Prototipo web disponible · Pendiente de integracion`: apare
 
 `prototypes` asocia `mechanism` (ID estable) con `title`, `icon`, `url`, `action`, `summary` y `pending`. Las URL publicas del prologo y del espejo se declaran aqui una sola vez. `prototypeLink` reutiliza esos datos en timeline, backlog, pendientes y modal del plano; `renderProgress` crea las dos fichas de Avance.
 
-La definicion se calcula con un punto por mecanismo definido conceptualmente o con prototipo, mas medio punto por prototipo disponible. Actualmente son 16 conceptos + 1 punto de maduracion tecnica = 17/35, redondeado a 49%; pendiente 51%. Es una estimacion editorial, no un porcentaje de produccion fisica. Construccion permanece en el 3% hasta disponer de nuevas evidencias de montaje. No contar otra vez un prototipo por publicar una nueva URL.
+La definicion se calcula con un punto por mecanismo definido conceptualmente o con prototipo, mas medio punto por prototipo disponible. Actualmente son 16 conceptos + 1 punto de maduracion tecnica = 17/35, redondeado a 49%; pendiente 51%. Es una estimacion editorial, no un porcentaje de produccion fisica. Construccion se actualiza manualmente: 30% segun Marcos el 18 de noviembre de 2026; mantener sincronizados el medidor global y la tarjeta de construccion de `index.html`. No contar otra vez un prototipo por publicar una nueva URL.
 
 Al modificar este criterio, actualizar el calculo, los valores iniciales de `index.html` y el resumen del README. Los enlaces abren una nueva pestana con `noopener noreferrer` y etiqueta accesible.
 

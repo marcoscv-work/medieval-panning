@@ -45,7 +45,7 @@ http://127.0.0.1:4173/
 
 ## Estado actual del proyecto
 
-- Construccion: 3%.
+- Construccion: 30%, segun la actualizacion indicada por Marcos el 18 de noviembre de 2026.
 - Definicion: 49%, estimacion editorial de 16 conceptos definidos mas 0,5 puntos por cada uno de los dos prototipos web (17 / 35, redondeado). No mide fabricacion ni integracion terminadas.
 - Pendiente de concretar: 51%, incluyendo diseno tecnico, contenido, dudas, juegos sin definir y decisiones de coste.
 - Prologo J-002: [La ultima luz](https://quakespain.es/prologo/), cuento 3D narrado disponible en web. Pendientes las pruebas de proyeccion y sonido, el disparo desde el gestor y la transicion al juego.
@@ -54,7 +54,7 @@ http://127.0.0.1:4173/
 - Zonas jugables: 5.
 - Mecanismos registrados: 35.
 
-Actualizacion: 18 de octubre de 2026. Ambos enlaces respondieron HTTP 200 al comprobarlos. Las demos se alojan fuera del planning y se abren desde Avance, timeline, backlog y la ficha del espejo en el plano. Los tres minutos del bosque siguen incluyendo entrada, acomodo y transicion, no solo la duracion del video.
+Actualizacion del estado: 18 de noviembre de 2026. Ambos enlaces respondieron HTTP 200 al comprobarlos el 18 de octubre de 2026. Las demos se alojan fuera del planning y se abren desde Avance, timeline, backlog y la ficha del espejo en el plano. Los tres minutos del bosque siguen incluyendo entrada, acomodo y transicion, no solo la duracion del video.
 
 ## Como evolucionarlo
 

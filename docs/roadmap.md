@@ -92,3 +92,9 @@ Objetivo: que el site sirva para vender, revisar y decidir.
 - Ambos enlaces respondieron HTTP 200. Esto confirma acceso a sus paginas, no una validacion de toda la experiencia en el equipo de sala.
 - Avance pasa de 44% a 49% por incorporar el concepto y el prototipo del prologo. Publicar la mascara no suma otro medio punto: ya estaba reconocido en el estado anterior.
 - Se conservan los 35 mecanismos y su orden de resolucion, los 59 minutos totales y el 3% de construccion.
+
+## Actualizacion Del 18 De Noviembre De 2026
+
+- Construccion pasa del 3% al 30% por indicacion de Marcos.
+- Definicion se mantiene en el 49% y pendiente de concretar en el 51%.
+- Se actualizan el medidor global, la tarjeta de construccion y la documentacion; no se dan por terminados mecanismos individuales ni cambian los pendientes de integracion.
