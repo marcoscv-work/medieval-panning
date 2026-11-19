@@ -76,7 +76,7 @@ Objetivo: que el site sirva para vender, revisar y decidir.
 - El espejo magico utilizara el concepto floating-mask: una mascara 3D animada en un monitor situado detras de una lamina semirreflectante.
 - Prototipo visual publicado en [espejo / mascara](https://quakespain.es/mask/): ocho expresiones, parpadeo, movimiento flotante, seguimiento del puntero, audio y microfono con sincronizacion labial. Los gestos son expresiones de la mascara; no implican deteccion de gestos del jugador.
 - Pendiente: guion del personaje, resolucion del acertijo J-024, disparos desde el gestor de sala y pruebas del montaje optico y de audio. El prototipo vive en su propio repositorio y no se sirve desde este planning.
-- Avance de definicion: 49% (16 conceptos + 0,5 puntos por cada uno de los dos prototipos, sobre 35); pendiente 51%. Cada prototipo se cuenta una sola vez y no equivale a fabricacion o integracion completada.
+- Avance actual de definicion: 55%, estimacion global de Marcos del 19 de noviembre de 2026; pendiente 45%. Sustituye el calculo por conceptos y prototipos y no equivale a fabricacion o integracion completada.
 - Queda pendiente probar el refresco e integracion del cuadro y el brillo, contraste y ocultacion del monitor del espejo.
 
 ## Decisiones cerradas
@@ -98,3 +98,9 @@ Objetivo: que el site sirva para vender, revisar y decidir.
 - Construccion pasa del 3% al 30% por indicacion de Marcos.
 - Definicion se mantiene en el 49% y pendiente de concretar en el 51%.
 - Se actualizan el medidor global, la tarjeta de construccion y la documentacion; no se dan por terminados mecanismos individuales ni cambian los pendientes de integracion.
+
+## Actualizacion Del 19 De Noviembre De 2026
+
+- Definicion sube del 49% al 55% por indicacion de Marcos; pendiente de concretar baja al 45%.
+- Construccion se revisa del 30% al 20% por indicacion de Marcos.
+- La definicion pasa a ser una estimacion global manual. No se altera el backlog para justificar el porcentaje ni se marcan integraciones como terminadas.

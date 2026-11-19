@@ -70,14 +70,14 @@ Construccion:
 
 - Mantenerlo bajo mientras no haya props, electronica, escenografia o integracion real.
 - Subirlo solo cuando haya elementos fisicos construidos o probados.
-- Estado comunicado por Marcos el 18 de noviembre de 2026: 30%. No cambia automaticamente los estados individuales del backlog.
+- Estado comunicado por Marcos el 19 de noviembre de 2026: 20%. No cambia automaticamente los estados individuales del backlog.
 
 Definicion:
 
 - Contar como definido solo lo que tenga mecanica jugable clara.
 - No contar como definido algo que sea solo una idea narrativa.
 - Separar definicion narrativa de definicion tecnica cuando el proyecto crezca.
-- Con los prototipos del prologo y floating-mask, el indicador incluye 0,5 puntos adicionales por cada prototipo: (16 + 1) / 35 = 49% redondeado. No duplicar ese extra al revisar el mismo prototipo. El pendiente de definicion es el complemento (51%); la construccion se estima por separado.
+- Desde el 19 de noviembre de 2026, el indicador refleja la estimacion global de Marcos: 55%. Se configura en `definitionPercent` y sustituye el calculo anterior por conceptos y prototipos. El pendiente de definicion es el complemento (45%); la construccion se estima por separado. No dar por terminados mecanismos individuales al cambiar este porcentaje.
 
 Pendiente:
 

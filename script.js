@@ -109,10 +109,8 @@ const prototypes = [
   },
 ];
 
-// Editorial definition estimate, not a measure of physical completion.
-const definedConcepts = backlog.filter(item => item.status === "Definido conceptualmente" || prototypes.some(p => p.mechanism === item.id)).length;
-const definitionScore = definedConcepts + prototypes.length * 0.5;
-const definitionPercent = Math.round(definitionScore / backlog.length * 100);
+// Project-owner estimate updated 2026-11-19; independent of individual backlog states.
+const definitionPercent = 55;
 
 const tasks = [
   {
@@ -389,7 +387,7 @@ function prototypeLink(mechanism) {
 }
 
 function renderProgress() {
-  document.querySelector("#definitionDetail").textContent = `${definedConcepts} conceptos definidos y 0,5 puntos por cada prototipo web: ${definitionScore} sobre ${backlog.length}.`;
+  document.querySelector("#definitionDetail").textContent = `Avance actualizado al ${definitionPercent}% segun la estimacion de Marcos; no implica mecanismos terminados.`;
   document.querySelector("#definitionValue").textContent = `${definitionPercent}%`;
   document.querySelector("#definitionBar").style.width = `${definitionPercent}%`;
   document.querySelector("#pendingValue").textContent = `${100 - definitionPercent}%`;
