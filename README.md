@@ -53,10 +53,13 @@ http://127.0.0.1:4173/
 - Duracion narrativa: 59 minutos.
 - Zonas jugables: 5.
 - Mecanismos registrados: 35.
+- Infraestructura prevista: 2 proyectores (primera y ultima sala), al menos 4 altavoces con un quinto opcional, al menos 6 microfonos y 9 camaras PoE. Un amplificador estereo con audio mono y seleccion por reles limitara a 2 los altavoces activos a la vez; diseno electrico pendiente de validar.
 
 Actualizacion del estado: 19 de noviembre de 2026. Ambos enlaces respondieron HTTP 200 al comprobarlos el 18 de octubre de 2026. Las demos se alojan fuera del planning y se abren desde Avance, timeline, backlog y la ficha del espejo en el plano. Los tres minutos del bosque siguen incluyendo entrada, acomodo y transicion, no solo la duracion del video.
 
 ## Como evolucionarlo
+
+La dotacion, el audio por zonas y las comprobaciones pendientes se detallan en [docs/av-infrastructure.md](docs/av-infrastructure.md). Se ha incorporado al planning y al alcance/notas del presupuesto sin modificar importes ni marcar equipos como comprados.
 
 1. Actualizar los datos en `script.js`.
 2. Ajustar el diseno en `styles.css`.

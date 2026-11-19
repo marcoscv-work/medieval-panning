@@ -45,4 +45,15 @@ Los cambios se guardan en `localStorage` bajo la clave `medieval-budget-v2`. El 
 
 La estimacion incluye la construccion y configuracion completas de la experiencia: escenografia, props, puzzles, automatismos, electronica, contenidos, montaje y pruebas.
 
-Quedan fuera los trabajos generales del inmueble que no forman parte de la configuracion de la sala, incluidas las adaptaciones legales o arquitectonicas, las instalaciones reglamentarias de seguridad y evacuacion, las camaras CCTV y otros sistemas de vigilancia del local.
+Quedan fuera los trabajos generales del inmueble que no forman parte de la configuracion de la sala, incluidas las adaptaciones legales o arquitectonicas, las instalaciones reglamentarias de seguridad y evacuacion y los sistemas generales de vigilancia ajenos a las nueve camaras PoE previstas para la experiencia.
+
+## Dotacion Del 19 De Noviembre De 2026
+
+- Dos proyectores: `forest-projection` identifica el de la primera sala; `lab-release` incluye el de la ultima dentro de su partida conjunta.
+- Al menos cuatro altavoces, quinto opcional, al menos seis microfonos y un amplificador estereo con audio mono. Seleccion mediante reles y maximo dos altavoces activos a la vez.
+- Nueve camaras PoE se incorporan al alcance previsto, sustituyendo su exclusion anterior. Red, potencia, monitorizacion y posible grabacion pendientes de definir.
+- La nota de `integration-av` recoge audio compartido y camaras. Cantidad 1 significa un lote, no un unico equipo de cada tipo.
+
+No se han alterado precios, cantidades economicas, IDs ni la clave de almacenamiento; se conservan los ajustes guardados del usuario. El precio acordado de 60.000 EUR antes de IVA y la estimacion anterior no se recalculan automaticamente. Las nuevas notas no son una cotizacion ni garantizan que la dotacion completa quepa en esa asignacion: hay que valorar modelos, accesorios e integracion antes de comprar.
+
+Ver [av-infrastructure.md](av-infrastructure.md) para cantidades tecnicas, validaciones y limites de funcionamiento.

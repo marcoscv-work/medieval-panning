@@ -63,7 +63,7 @@ const budgetSections = [
     icon: "trees",
     items: [
       { id: "forest-set", description: "Ambientacion forestal, troncos y zona de acomodo", qty: 1, unit: 1800 },
-      { id: "forest-projection", description: "Proyeccion introductoria, soporte y cableado", qty: 1, unit: 2000 },
+      { id: "forest-projection", description: "Proyector de la primera sala, soporte y cableado", note: "Primero de los dos proyectores previstos: Bosque / prologo. Modelo e importe por validar.", qty: 1, unit: 2000 },
       { id: "forest-av", description: "Audio, iluminacion y control de secuencia", qty: 1, unit: 1500 },
     ],
   },
@@ -123,7 +123,7 @@ const budgetSections = [
       { id: "lab-set", description: "Escenografia integral del laboratorio", qty: 1, unit: 4000 },
       { id: "lab-cages", description: "Jaulas con criatura y acabado escenografico", qty: 6, unit: 800 },
       { id: "lab-motors", description: "Motores y mecanismos de ocultacion de criaturas", qty: 6, unit: 250 },
-      { id: "lab-release", description: "Apagon, iluminacion, audio y proyeccion de apoyo", qty: 1, unit: 2600 },
+      { id: "lab-release", description: "Apagon, iluminacion, audio y proyeccion de apoyo", note: "Incluye el segundo proyector, en la ultima sala (Laboratorio). Partida conjunta; no anadir un tercer proyector por duplicacion.", qty: 1, unit: 2600 },
       { id: "lab-spell", description: "Interfaz y efectos del conjuro colectivo", qty: 1, unit: 2200 },
       { id: "lab-exit", description: "Aparicion del mago y automatizacion de salida", qty: 1, unit: 2200 },
     ],
@@ -136,7 +136,7 @@ const budgetSections = [
     items: [
       { id: "integration-control", description: "Control central, cuadros de baja tension y cableado de juego", qty: 1, unit: 4800 },
       { id: "integration-software", description: "Software, secuencias, estados y sistema de pistas", qty: 1, unit: 4500 },
-      { id: "integration-av", description: "Integracion global de audio, luz y proyecciones", qty: 1, unit: 2800 },
+      { id: "integration-av", description: "Integracion audiovisual y nueve camaras PoE", note: "Dotacion prevista: al menos 4 altavoces (5.o opcional), al menos 6 microfonos, 1 amplificador estereo con audio mono, reles para maximo 2 altavoces activos y 9 camaras PoE. Dimensionar entradas, red, alimentacion y control. Cantidad 1 = lote; importe anterior sin recotizar, no precio unitario ni confirmacion de cobertura de toda la dotacion.", qty: 1, unit: 2800 },
       { id: "integration-tests", description: "Pruebas, ajustes, reset, documentacion y formacion", qty: 1, unit: 2600 },
       { id: "integration-install", description: "Transporte, montaje y consumibles de instalacion", qty: 1, unit: 3500 },
     ],

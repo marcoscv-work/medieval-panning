@@ -81,6 +81,14 @@ El panel lateral usa tres grupos:
 - `pending`: se calcula automaticamente desde el backlog buscando estados `Pendiente`, `Sin definir` o `Duda`.
 - `questions`: dudas abiertas importantes.
 
+El contador `questionCount` del resumen se actualiza desde `questions.length` para incluir las dudas audiovisuales y de red sin quedar desfasado.
+
+## Infraestructura
+
+La seccion estatica `#instalacion` de `index.html` resume cantidades y funcionamiento: dos proyectores, al menos cuatro altavoces y un quinto opcional, al menos seis microfonos, un amplificador estereo con mono y nueve camaras PoE. El maximo de dos altavoces activos no equivale al numero instalado.
+
+Mantener esta seccion sincronizada con [av-infrastructure.md](av-infrastructure.md), tareas/dudas de `script.js`, el alcance de `presupuesto.html` y las notas de `budget.js`. No anadir dispositivos al backlog como nuevos puzzles ni subir porcentajes por documentar la dotacion.
+
 ## Iconos
 
 Los iconos vienen de Lucide, cargado por CDN en `index.html`.

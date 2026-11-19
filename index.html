@@ -88,7 +88,7 @@
             </div>
             <div>
               <i data-lucide="circle-help"></i>
-              <strong>8</strong>
+              <strong id="questionCount">10</strong>
               <small>dudas clave</small>
             </div>
           </div>
@@ -202,6 +202,42 @@
           </article>
         </div>
         <div class="prototype-grid" id="prototypeGrid" aria-label="Prototipos web disponibles"></div>
+      </section>
+
+      <section class="equipment-section" id="instalacion" aria-labelledby="equipment-title">
+        <div class="section-heading">
+          <p class="eyebrow"><i data-lucide="cable"></i> Infraestructura prevista</p>
+          <h2 id="equipment-title">Imagen, sonido y seguimiento de sala.</h2>
+          <p class="section-intro">Dotacion de diseno, pendiente de compra, montaje y validacion. No modifica los porcentajes de avance.</p>
+        </div>
+        <div class="equipment-grid">
+          <article class="equipment-item">
+            <i data-lucide="projector"></i><strong>2</strong><h3>Proyectores</h3>
+            <p>Uno en la primera sala, Bosque / prologo, y otro en la ultima, Laboratorio.</p>
+          </article>
+          <article class="equipment-item">
+            <i data-lucide="speaker"></i><strong>4 + 1 opcional</strong><h3>Altavoces</h3>
+            <p>Al menos cuatro, posiblemente cinco. Maximo dos activos a la vez, seleccionados mediante reles.</p>
+          </article>
+          <article class="equipment-item">
+            <i data-lucide="mic"></i><strong>6 minimo</strong><h3>Microfonos</h3>
+            <p>Distribucion, captacion e interfaz de entradas pendientes de definir.</p>
+          </article>
+          <article class="equipment-item">
+            <i data-lucide="audio-lines"></i><strong>1 estereo</strong><h3>Amplificador</h3>
+            <p>Audio en mono hacia sus dos canales independientes, con un altavoz por canal como planteamiento inicial.</p>
+          </article>
+          <article class="equipment-item">
+            <i data-lucide="cctv"></i><strong>9 PoE</strong><h3>Camaras</h3>
+            <p>Seguimiento de la experiencia. Pendientes cobertura, cableado, puertos y presupuesto de potencia PoE.</p>
+          </article>
+        </div>
+        <div class="equipment-routing">
+          <h3><i data-lucide="git-branch"></i> Audio por zonas</h3>
+          <p>La fuente entrega audio mono a ambos canales del amplificador. Los reles seleccionan los destinos y el control limita la salida a dos altavoces simultaneos entre los cuatro o cinco instalados.</p>
+          <p><strong>Validacion pendiente:</strong> impedancias, potencia y contactos de los reles; silenciar antes de desconectar y conectar otra zona. No unir las salidas de potencia del amplificador para obtener mono.</p>
+          <a class="prototype-link" href="docs/av-infrastructure.md" target="_blank" rel="noopener noreferrer"><i data-lucide="file-text"></i> Ficha de infraestructura<span class="sr-only"> (nueva pestana)</span></a>
+        </div>
       </section>
 
       <section class="timeline-section" id="timeline">

@@ -7,7 +7,7 @@ const timeline = [
     role: "Introduccion narrativa",
     objective: "Descubrir la mision y emprender el camino hacia la fortaleza del gran mago.",
     summary:
-      "Los jugadores entran en el bosque a oscuras y se sientan en unos troncos. El Game Master se marcha y comienza una proyeccion: han llegado a un mundo magico cuyas criaturas estan desapareciendo. Para descubrir la causa, deberan visitar al gran mago del reino en su fortaleza.",
+      "Los jugadores entran en el bosque a oscuras y se sientan en unos troncos. El Game Master se marcha y comienza una proyeccion: han llegado a un mundo magico cuyas criaturas estan desapareciendo. Para descubrir la causa, deberan visitar al gran mago del reino en su fortaleza. Esta primera sala tendra uno de los dos proyectores de la experiencia.",
     beats: ["Entrada a oscuras", "Troncos", "Salida del Game Master", "Prologo 3D disponible"],
   },
   {
@@ -51,7 +51,7 @@ const timeline = [
     role: "Revelacion final y climax",
     objective: "Liberar a las criaturas magicas y escapar antes de que el mago los atrape.",
     summary:
-      "El grupo descubre que el mago experimenta con criaturas encerradas en al menos seis jaulas. Durante la liberacion se apaga la luz, unos motores ocultan las criaturas al fondo de las jaulas y, al volver la iluminacion, el audio y una proyeccion de apoyo confirman que han escapado.",
+      "El grupo descubre que el mago experimenta con criaturas encerradas en al menos seis jaulas. Durante la liberacion se apaga la luz, unos motores ocultan las criaturas al fondo de las jaulas y, al volver la iluminacion, el audio y una proyeccion de apoyo confirman que han escapado. El segundo proyector se instala en esta ultima sala.",
     beats: ["Conjuro colectivo", "Apagon y motores", "Audio de liberacion", "Proyeccion de apoyo", "Huida"],
   },
 ];
@@ -114,6 +114,16 @@ const definitionPercent = 55;
 
 const tasks = [
   {
+    icon: "cable",
+    title: "Proyeccion y audio por zonas",
+    body: "Planificar dos proyectores (primera y ultima sala), al menos cuatro altavoces con un quinto opcional y al menos seis microfonos. Validar un amplificador estereo con audio mono, reles y un maximo de dos altavoces activos; definir entradas de microfono, mute, transiciones y reset.",
+  },
+  {
+    icon: "cctv",
+    title: "Nueve camaras PoE",
+    body: "Definir ubicaciones y cobertura, nueve conexiones PoE, enlaces de red, potencia total, cableado y monitorizacion del Game Master. Decidir si habra grabacion y actualizar la valoracion economica sin dar el montaje por completado.",
+  },
+  {
     icon: "clapperboard",
     title: "Integrar los dos prototipos publicados",
     body: "Prologo y espejo/mascara ya tienen demo web. Ensayar proyeccion y audio, montaje optico del espejo, disparos del gestor y reset. Cerrar el acertijo J-024 antes de dar el espejo por terminado.",
@@ -144,6 +154,8 @@ const questions = [
   ["mic-vocal", "Validacion del espejo magico", "Integrar floating-mask: validar voz, expresiones, control desde el gestor y brillo, contraste y ocultacion tras la lamina semirreflectante. Definir la resolucion del acertijo."],
   ["flask-conical", "Dos juegos de laboratorio", "Disenar los dos juegos que faltan para sostener el climax."],
   ["route", "Obtencion de la varita", "Disenar la mecanica y el momento exactos de su entrega como objetivo principal de la Sala principal."],
+  ["audio-lines", "Validacion audiovisual", "Cerrar el quinto altavoz, las parejas de zonas y la entrada de los seis microfonos como minimo. Validar reles, impedancias y silenciamiento del amplificador. Resolver como J-009 reutiliza el proyector del bosque sin contar un tercero."],
+  ["cctv", "Cobertura y red PoE", "Ubicar las nueve camaras, dimensionar puertos y potencia PoE y definir acceso de monitorizacion. Grabacion, almacenamiento y audio de camaras pendientes; no sustituyen automaticamente a los seis microfonos."],
 ];
 
 const areaIcons = {
@@ -350,7 +362,7 @@ const mapPoints = [
     x: 86,
     y: 36,
     summary: "Zona final con al menos seis jaulas y criaturas cautivas.",
-    details: "Durante la liberacion se apaga la luz y los motores tumban las criaturas al fondo de las jaulas para ocultarlas. La luz vuelve con audio de liberacion y una proyeccion de apoyo.",
+    details: "Durante la liberacion se apaga la luz y los motores tumban las criaturas al fondo de las jaulas para ocultarlas. La luz vuelve con audio de liberacion y una proyeccion de apoyo mediante el segundo proyector, ubicado en esta ultima sala.",
     mechanisms: ["J-029", "J-030", "J-033"],
   },
   {
@@ -484,6 +496,7 @@ function renderBacklog(filter = "all") {
 }
 
 function renderPlanPanel() {
+  document.querySelector("#questionCount").textContent = questions.length;
   document.querySelector("#tab-tasks").innerHTML = tasks
     .map(
       (task) => `

@@ -104,3 +104,16 @@ Objetivo: que el site sirva para vender, revisar y decidir.
 - Definicion sube del 49% al 55% por indicacion de Marcos; pendiente de concretar baja al 45%.
 - Construccion se revisa del 30% al 20% por indicacion de Marcos.
 - La definicion pasa a ser una estimacion global manual. No se altera el backlog para justificar el porcentaje ni se marcan integraciones como terminadas.
+
+## Dotacion Audiovisual Y Camaras
+
+Decision del 19 de noviembre de 2026:
+
+- Dos proyectores, en la primera sala (Bosque / prologo) y la ultima (Laboratorio).
+- Al menos cuatro altavoces, con un quinto posible; maximo dos activos simultaneamente mediante reles y un unico amplificador estereo con audio mono.
+- Al menos seis microfonos; definir captacion, entradas y monitorizacion, sin sustituirlos automaticamente por audio de camaras.
+- Nueve camaras PoE para seguimiento de la experiencia; definir cobertura, red, potencia y visualizacion o grabacion.
+- Validar el circuito de conmutacion, las parejas de altavoces y el reset antes de montar. Resolver J-009 con el primer proyector sin contar un tercero.
+- El presupuesto incorpora la dotacion y revisa la exclusion de camaras; los importes no se recalculan hasta disponer de equipos y costes concretos.
+
+Detalle: [Infraestructura audiovisual](av-infrastructure.md). Se mantienen los porcentajes 55% / 20% / 45% y los 35 mecanismos.
